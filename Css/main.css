@@ -1,0 +1,83 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #141d21;
+}
+
+hr {
+    width:100%;
+    text-align:left;
+    margin-left:0;
+}
+
+ul {
+  float:right;
+  width: 80%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: right;
+}
+
+li:last-child {
+  border-right: none;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  color: #ff5555;
+}
+
+svg {
+    display: block;
+    margin: auto;
+}
+
+.active {
+  color: darkred;
+  /* font-style: bold; */
+}
+
+.learnMoreBtn a:link, .learnMoreBtn a:visited {
+  background-color: brown;
+  color: black;
+  border: 2px solid brown;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 8px;
+}
+
+.learnMoreBtn a:hover, .learnMoreBtn a:active {
+    background-color: darkred;
+    color: white;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+}
+
+.MainLogo {
+    width: 10%;
+    float:left;
+    align-content: center;
+}
