@@ -1,229 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>Hussein Al Khayyat - Portfolio</title>
+    <head>
+        <title>Hussein Al Khayyat - Portfolio</title>
 
-		<meta charset="utf-8">
-        <meta name="description" content="This website will view all of our games and tell you who we are.">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="This website showcases my projects and tells you who I am.">
         <meta property="og:type" content="website">
         <meta property="og:site_name" content="Hussein Al Khayyat">
         <meta property="og:title" content="Portfolio">
-        <meta property="og:description" content="">
+        <meta property="og:description" content="Explore my projects and experience in game development and emulators.">
 
-        <link rel="stylesheet" href="../Css/main.css" />
-        <link rel="stylesheet" href="../Css/games.css" />
+        <link rel="stylesheet" href="../Css/main.css">
+        <link rel="stylesheet" href="../Css/games.css">
     </head>
 
-    <body link="#000" alink="#017bf5" vlink="#000">
-        <h3 align="center">
-            <div class="NavigationBar">
-                <a style="color: #6CA0DC; font-size: 1em; text-decoration: none;">
-                    <div class="MainLogo">
-                        <!--<img src="Images/DaxyLogo.png" height="60px"/> -->
-                        Hussein Al Khayyat
-                    </div>
-                </a>
+    <body>
+        <header>
+            <nav class="NavigationBar" style="text-align: center;">
+                <div class="MainLogo" style="color: #6CA0DC; font-size: 2em; text-decoration: none; white-space: nowrap;">
+                    Hussein Al Khayyat
+                </div>
 
-                <font face="Lato" size="100">
-                    <div class="MainLogo">
-                        <!--<img src="Images/DaxyLogo.png" height="60px"/> -->
-                    </div>
-                </font>
+                <ul style="list-style: none; padding: 0; font-family: Lato; font-size: 1.2em;">
+                    <li style="display: inline; margin: 0 10px;"><a href="about.html">About me</a></li>
+                    <li style="display: inline; margin: 0 10px;"><a class="active" href="#">Portfolio</a></li>
+                    <li style="display: inline; margin: 0 10px;"><a href="../index.html">Home</a></li>
+                </ul>
+            </nav>
+        </header>
 
-                <font face="cinzel" size="4">
-                    <ul>
-                        <li><a href="about.html">About me</a></li>
-                        <li><a class="active" href="">Portfolio</a></li>
-                        <li><a href="../index.html">Home</a></li>
-                    </ul>
-                </font>
+        <main>
+            <div style="display: flex; justify-content: center; align-items: center; width: 100%; padding: 20px;">
+                <h1 style="color: #FFFFFF; font-family: Roboto; font-size: 4em; margin: 0;">Portfolio</h1>
             </div>
-        </h3>
 
-        <br /><br />
+            <div style="overflow-x:auto;">
+                <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between;">
 
-        <h1 align="center">
-            <font face="Roboto" color="#FFFFFF" size="7">
-                Portfolio
-            </font>
-        </h1>
+                    <!-- Game Boy Emulator -->
+                    <section style="background-color: #1E1E1E; max-width: 48%; padding: 10px; border-radius: 10px;">
+                        <video autoplay muted loop style="display: block; width: 100%; border-radius: 10px;">
+                            <source src="../Videos/GameBoy-Zelda.mp4" type="video/mp4">
+                            Your browser does not support the video tag :(
+                        </video>
+                        <h2 style="color: #6CA0DC; font-size: 1.8em;">Game Boy Emulator -
+                            <a href="https://github.com/Daxy215/Gameboy-Emulator" target="_blank" style="color: #6CA0DC; text-decoration: none; font-size: 1.6em;">
+                                View Project on GitHub
+                            </a>
+                        </h2>
+                        <p style="font-size: 1.4em; color: #A9A9A9;">
+                            I have always wanted to build an emulator of some sort, especially a PS1 emulator, however, writing a PS1 emulator is very time-consuming, so I decided to choose a simpler emulator to gain more experience in writing emulators and then go back to the PS1 emulator.
+                            <br><br>
+                            I mainly started this project for fun, however, I wanted to improve my knowledge of system programming.
+                            <br><br>
+                            The emulator still contains some missing futures such as the Audio and some issues with the PPU to solve.
+                            <br><br>
+                            While making the Game Boy emulator, I have encountered many issues, some took days or even weeks to solve!<br>
+                            However, I have enjoyed every bit of problem-solving it brought.
+                            <br><br>
+                            The development of this emulator is far from finished and my main goal is to have support for more games, such as the Pokémon games.
+                            <br><br>
+                            In the future, after implementing those futures, I am planning to support the coloured version as well.
+                        </p>
+                    </section>
 
-        <br />
+                    <!-- PS1 Emulator -->
+                    <section style="background-color: #1E1E1E; max-width: 48%; padding: 10px; border-radius: 10px;">
+                        <video autoplay muted loop style="display: block; width: 100%; border-radius: 10px;">
+                            <source src="../Videos/PS1-Bios.mp4" type="video/mp4">
+                            Your browser does not support the video tag :(
+                        </video>
+                        <h2 style="color: #6CA0DC; font-size: 1.8em;">PS1 Emulator -
+                            <a href="https://github.com/Daxy215/PS1Emulator" target="_blank" style="color: #6CA0DC; text-decoration: none; font-size: 1.6em;">
+                                View Project on GitHub
+                            </a>
+                        </h2>
+                        <p style="font-size: 1.4em; color: #A9A9A9;">
+                            This is my first ever emulator that I have worked on, and it isn't completed as it will take a very long time to complete it.
+                            <br><br>
+                            As this is my first emulator, I decided to follow a tutorial(a bad mistake) though I learnt so much from it!
+                            <br><br>
+                            It is obviously missing so many features however it has a fully functioning CPU, and as you can see, the rendering is really messed up!
+                            <br><br>
+                            My plan is once I finish the Game Boy emulator is to return and finish this emulator.
+                            <br><br>
+                            As you can probably see, one of the last futures I worked on was the VRAM and texture rendering, hence the random textures you may see on the screen.
+                            <br><br>
+                            It was so much fun writing this emulator and digging deeper into the world of emulators.
+                        </p>
+                    </section>
 
-        <div style="overflow-x:auto;">
-            <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between;">
+                    <!-- Compiler -->
+                    <section style="background-color: #1E1E1E; max-width: 48%; padding: 10px; border-radius: 10px;">
+                        <video autoplay muted loop style="display: block; width: 100%; border-radius: 10px;">
+                            <source src="../Videos/Compiler.mp4" type="video/mp4">
+                            Your browser does not support the video tag :(
+                        </video>
+                        <h2 style="color: #6CA0DC; font-size: 1.8em;">Compiler -
+                            <a href="https://github.com/Daxy215/Compiler" target="_blank" style="color: #6CA0DC; text-decoration: none; font-size: 1.6em;">
+                                View Project on GitHub
+                            </a>
+                        </h2>
+                        <p style="font-size: 1.4em; color: #A9A9A9;">
+                            This is a runtime compiler that is based on C++ structure.
+                            <br><br>
+                            This compiler is nowhere near finished, but it has most of the fundamentals of a compiler.
+                            <br><br>
+                            When I say it isn't finished, I mean it in a way that as it's based on the structure of C++ and I wanted to add a lot of features, so it'll take a while.
+                            <br><br>
+                            The compiler has a Lexer, TAC, Semantic Analyser, CFG, IR and Code Generation.<br>
+                            I originally wanted this compiler to be an interrupter, but then I switched to a compiler as I wanted to learn assembly.
+                            <br><br>
+                            The code generation is almost completely wrong, I'll admit, however, it was at a time when I barely knew assembly.
+                            <br><br>
+                            The code itself, isn't well-structured as when I started working on the Compiler I had little experience in writing cleaner code.
+                        </p>
+                    </section>
 
-                <!-- Game Boy Emulator -->
-                <div style="background-color: #1E1E1E; max-width: 48%; padding: 10px; border-radius: 10px;">
-                    <video autoplay muted loop style="display: block; width: 100%; border-radius: 10px;">
-                        <source src="../Videos/GameBoy-Zelda.mp4" type="video/mp4">
-                        Your browser does not support the video tag :(
-                    </video>
+                    <!-- Game Engine -->
+                    <section style="background-color: #1E1E1E; max-width: 48%; padding: 10px; border-radius: 10px;">
+                        <video autoplay muted loop style="display: block; width: 100%; border-radius: 10px;">
+                            <source src="../Videos/GameEngine.mp4" type="video/mp4">
+                            Your browser does not support the video tag :(
+                        </video>
+                        <h2 style="color: #6CA0DC; font-size: 1.8em;">Game Engine -
+                            <a href="https://github.com/Daxy215/Anix-Java" target="_blank" style="color: #6CA0DC; text-decoration: none; font-size: 1.6em;">
+                                View Project on GitHub
+                            </a>
+                        </h2>
+                        <p style="font-size: 1.4em; color: #A9A9A9;">
+                            I started working on this game engine when I was 14, just a beginner that is interested in this field.
+                            <br><br>
+                            I worked on it for a year or so, and I learnt so much.<br>
+                            I worked on so many projects using the game engine, such as, Raytracing, Minecraft clone to see how well my engine will handle a large number of objects.
+                            <br><br>
+                            and many different games especially a game called "RoboFactory", this game is a factory and a simulation game.
+                            <br><br>
+                            At the moment, I'm updating the engine as I believe the original architecture is awful, as I started working on it when I was a beginner.
+                            <br><br>
+                            I am looking to add new features and a new architecture to the engine as well as rewriting the rendering pipeline.
+                        </p>
+                    </section>
 
-                    <br><br>
-
-                    <a style="color: #6CA0DC; font-size: 1.8em; text-decoration: none;">Game Boy Emulator -
-                        <a href="https://github.com/Daxy215/Gameboy-Emulator" target="_blank" style="color: #6CA0DC; text-decoration: none; font-size: 1.6em;">
-                            View Project on GitHub
-                        </a>
-                    </a>
-                    <br><br>
-
-                    <span style="font-size: 1.4em; color: #A9A9A9; display: block;">
-                        I have always wanted to build an emulator of some sort, especially a PS1 emulator, however, writing a PS1 emulator is very time-consuming, so I decided to choose a simpler emulator to gain more experience in writing emulators and then go back to the PS1 emulator.
-                        <br><br>
-                        I mainly started this project for fun, however, I wanted to improve my knowledge of system programming.
-                        <br><br>
-                        The emulator still contains some missing futures such as the Audio and some issues with the PPU to solve.
-                        <br><br>
-                        While making the Game Boy emulator, I have encountered many issues, some took days or even weeks to solve!<br>
-                        However, I have enjoyed every bit of problem-solving it brought.
-                        <br><br>
-                        The development of this emulator is far from finished and my main goal is to have support for more games, such as the Pokémon games.
-                        <br><br>
-                        In the future, after implementing those futures, I am planning to support the coloured version as well.
-                    </span>
-                </div>
-
-                <!-- PS1 Emulator -->
-                <div style="background-color: #1E1E1E; max-width: 48%; padding: 10px; border-radius: 10px;">
-                    <video autoplay muted loop style="display: block; width: 100%; border-radius: 10px;">
-                        <source src="../Videos/PS1-Bios.mp4" type="video/mp4">
-                        Your browser does not support the video tag :(
-                    </video>
-
-                    <br><br>
-
-                    <a style="color: #6CA0DC; font-size: 1.8em; text-decoration: none;">PS1 Emulator -
-                        <a href="https://github.com/Daxy215/PS1Emulator" target="_blank" style="color: #6CA0DC; text-decoration: none; font-size: 1.6em;">
-                            View Project on GitHub
-                        </a>
-                    </a>
-                    <br><br>
-
-                    <span style="font-size: 1.4em; color: #A9A9A9; display: block;">
-                        This is my first every emulator that I have worked on, and it isn't completed as it will take a very long time to complete it.
-                        <br><br>
-                        As this is my first emulator, I decided to follow a tutorial(a bad mistake) though I learnt so much from it!
-                        <br><br>
-                        It is obviously missing so many features however it has a fully functioning CPU, and as you can see, the rendering is really messed up!
-                        <br><br>
-                        My plan is once I finish the Game Boy emulator is to return and finish this emulator.
-                        <br><br>
-                        As you can probably see, one of the last futures I worked on was the VRAM and texture rendering, hence the random textures you may see on the screen.
-                        <br><br>
-                        It was so much fun writing this emulator and digging deeper into the world of emulators.
-                    </span>
-                </div>
-
-                <!-- Compiler -->
-                <div style="background-color: #1E1E1E; max-width: 48%; padding: 10px; border-radius: 10px;">
-                    <video autoplay muted loop style="display: block; width: 100%; border-radius: 10px;">
-                        <source src="../Videos/Compiler.mp4" type="video/mp4">
-                        Your browser does not support the video tag :(
-                    </video>
-
-                    <br><br>
-
-                    <a style="color: #6CA0DC; font-size: 1.8em; text-decoration: none;">Compiler -
-                        <a href="https://github.com/Daxy215/Compiler" target="_blank" style="color: #6CA0DC; text-decoration: none; font-size: 1.6em;">
-                            View Project on GitHub
-                        </a>
-                    </a>
-                    <br><br>
-
-                    <span style="font-size: 1.4em; color: #A9A9A9; display: block;">
-                        This is a runtime compiler that is based on C++ structure.
-                        <br><br>
-                        This compiler is nowhere near finished, but it has most of the fundamentals of a compiler.
-                        <br><br>
-                        When I say it isn't finished, I mean it in a way that as it's based on the structure of C++ and I wanted to add a lot of features, so it'll take a while.
-                        <br><br>
-                        The compiler has a Lexer, TAC, Semantic Analyser, CFG, IR and Code Generation.<br>
-                        I originally wanted this compiler to be an interrupter, but then I switched to a compiler as I wanted to learn assembly.
-                        <br><br>
-                        The code generation is almost completely wrong, I'll admit, however, it was at a time when I barely knew assembly.
-                        <br><br>
-                        The code itself, isn't well-structured as when I started working on the Compiler I had little experience in writing cleaner code.
-                    </span>
-                </div>
-
-                <!-- Game Engine -->
-                <div style="background-color: #1E1E1E; max-width: 48%; padding: 10px; border-radius: 10px;">
-                    <video autoplay muted loop style="display: block; width: 100%; border-radius: 10px;">
-                        <source src="../Videos/GameEngine.mp4" type="video/mp4">
-                        Your browser does not support the video tag :(
-                    </video>
-
-                    <br><br>
-
-                    <a style="color: #6CA0DC; font-size: 1.8em; text-decoration: none;">Game Engine -
-                        <a href="https://github.com/Daxy215/Anix-Java" target="_blank" style="color: #6CA0DC; text-decoration: none; font-size: 1.6em;">
-                            View Project on GitHub
-                        </a>
-                    </a>
-                    <br><br>
-
-                    <span style="font-size: 1.4em; color: #A9A9A9; display: block;">
-                        I started working on this game engine when I was 14, just a beginner that is interested in this field.
-                        <br><br>
-                        I worked on it for a year or so, and I learnt so much.<br>
-                        I worked on so many projects using the game engine, such as, Raytracing, Minecraft clone to see how well my engine will handle a large number of objects.
-                        <br><br>
-                        and many different games especially a game called "RoboFactory", this game is a factory and I spent over 6 months working on it.
-                        <br><br>
-                        The game engine contain many different features and I wrote it using LWJGL in Java as it was the only language I knew at the time.
-                        <br><br>
-                        The engine has stuff like scenes loaders, audio, simple physics engine, a component system with saving,<br>
-                        as well as its layout is quite like Unity where you have an inspector to view the script and any public fields.
-                        <br><br>
-                        I spent the most working on a scripting within the engine and the ability to compile at runtime.
-                        <br><br>
-                        There are also shaders that you can custom create using GLSL and in a material.
-                        <br><br>
-                        And of course you can load different projects into the game engine.
-                        <br><br>
-                        When I started University I had to abandon this project as I had little time to work on it, however,<br>
-                        I am quite interested in how to make a Game Engine that supports many different platforms, which is my plan to work on in the future.
-                        <br><br>
-                        As I mentioned when I started this project, I was a beginner so the code base is structured in a very weird way.
-                    </span>
-                </div>
-
-                <!-- Linker -->
-                <div style="background-color: #1E1E1E; max-width: 48%; padding: 10px; border-radius: 10px;">
-                    <video autoplay muted loop style="display: block; width: 100%; border-radius: 10px;">
-                        <source src="../Videos/Linker.mp4" type="video/mp4">
-                        Your browser does not support the video tag :(
-                    </video>
-
-                    <br><br>
-
-                    <a style="color: #6CA0DC; font-size: 1.8em; text-decoration: none;">Linker -
-                        <a href="https://github.com/Daxy215/Linker" target="_blank" style="color: #6CA0DC; text-decoration: none; font-size: 1.6em;">
-                            View Project on GitHub
-                        </a>
-                    </a>
-                    <br><br>
-
-                    <span style="font-size: 1.4em; color: #A9A9A9; display: block;">
-                        I made this game for a Game Jam a very while ago.
-                        <br><br>
-                        It was my first time working with another person who was the artist.
-                        <br><br>
-                        The game idea is that you are a robot that has lost his memory chips so you need to go around a fetch them.
-                        <br><br>
-                        We used Unity to make this project and I can't remember what placement we got for the Game Jam.<br>
-                        It obviously is quite bugged, but for an old project, it is really fun!
-                        <br><br>
-                        Everything you see there is made by me, most of the animations even but some of the Art was made by the Artist.
-                    </span>
+                    <!-- Linker -->
+                    <section style="background-color: #1E1E1E; max-width: 48%; padding: 10px; border-radius: 10px;">
+                        <video autoplay muted loop style="display: block; width: 100%; border-radius: 10px;">
+                            <source src="../Videos/Linker.mp4" type="video/mp4">
+                            Your browser does not support the video tag :(
+                        </video>
+                        <h2 style="color: #6CA0DC; font-size: 1.8em;">Linker -
+                            <a href="https://github.com/Daxy215/Linker" target="_blank" style="color: #6CA0DC; text-decoration: none; font-size: 1.6em;">
+                                View Project on GitHub
+                            </a>
+                        </h2>
+                        <p style="font-size: 1.4em; color: #A9A9A9;">
+                            I made this game for a Game Jam a while ago.
+                            <br><br>
+                            My plan was to create a game where you are in control of a character and you can either fight with it or build a base.
+                            <br><br>
+                            I had a week to make it and while I didn’t finish, I did learn a lot from the experience.
+                            <br><br>
+                            I did everything from the engine to the assets that were used in the game.
+                            <br><br>
+                            I still want to return to this project and finish it as I still have a lot of ideas that I want to implement.
+                        </p>
+                    </section>
                 </div>
             </div>
-        </div>
-
-        <footer>
-            &copy; Daxy Copyright 2021
-        </footer>
+        </main>
     </body>
-<html>
+</html>
