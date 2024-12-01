@@ -8,6 +8,9 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 hr {
