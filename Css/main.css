@@ -11,6 +11,19 @@ body {
 
     text-align: justify;
     text-justify: inter-word;
+
+    font-family: Arial, sans-serif;
+    justify-content: center;
+}
+
+.NavigationBar {
+    background-color: #121212;
+    padding: 10px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
 hr {
@@ -73,6 +86,22 @@ svg {
 .learnMoreBtn a:hover, .learnMoreBtn a:active {
     background-color: darkred;
     color: white;
+}
+
+/* Section styles */
+section {
+    background-color: #1E1E1E;
+    flex: 1 1 calc(48% - 20px); /* Adjusts width to 48% with space for gaps */
+    padding: 10px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+/* Ensure video is responsive */
+video {
+    display: block;
+    width: 100%;
+    border-radius: 10px;
 }
 
 footer {
