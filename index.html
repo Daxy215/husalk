@@ -4,32 +4,55 @@
         <title>Hussein Al Khayyat - Home</title>
 
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="This website showcases my projects and tells you who I am.">
         <meta property="og:type" content="website">
         <meta property="og:site_name" content="Hussein Al Khayyat">
         <meta property="og:title" content="Portfolio">
-        <meta property="og:description" content="Explore my projects and experience in game development and emulators.">
+        <meta property="og:description" content="Portfiolo">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+
         <link rel="stylesheet" href="Css/main.css">
-        <link rel="stylesheet" href="Css/games.css">
+        <!--<link rel="stylesheet" href="Css/games.css">-->
+
+        <script src="Js/Navbar.js"></script>
     </head>
 
     <body>
         <header>
-            <nav class="NavigationBar" style="text-align: center;">
-                <div class="MainLogo" style="color: #6CA0DC; font-size: 2em; text-decoration: none; white-space: nowrap;">
-                    Hussein Al Khayyat
-                </div>
-
+            <!--<nav class="NavigationBar" style="text-align: center;">-->
                 <!-- Navigation links -->
-                <ul style="list-style: none; padding: 0; font-family: Lato; font-size: 1.2em;">
+                <!--<ul style="list-style: none; padding: 0; font-family: Lato; font-size: 1.2em;">
                     <li style="display: inline; margin: 0 10px;"><a href="Pages/about.html">About me</a></li>
                     <li style="display: inline; margin: 0 10px;"><a href="Pages/portfolio.html">Portfolio</a></li>
                     <li style="display: inline; margin: 0 10px;"><a class="active" href="#">Home</a></li>
-                </ul>
-            </nav>
+                </ul>-->
+
+                 <div class="topnav" id="myTopnav">
+                     <a href="" class="active">Home</a>
+                     <a href="Pages/portfolio.html">Portfolio</a>
+                     <a href="Pages/about.html">About</a>
+
+                     <!--<div class="dropdown">
+                         <button class="dropbtn">Dropdown
+                             <i class="fa fa-caret-down"></i>
+                         </button>
+
+                         <div class="dropdown-content">
+                             <a href="#">Link 1</a>
+                             <a href="#">Link 2</a>
+                             <a href="#">Link 3</a>
+                         </div>
+                     </div>-->
+                     <a href="javascript:void(0);" class="icon" onclick="toggleNavBar()">&#9776;</a>
+
+                     <div class="MainLogo" style="color: #6CA0DC; font-size: 2em; text-decoration: none; white-space: nowrap;">
+                         Hussein Al Khayyat
+                     </div>
+                </div>
+            <!--</nav>-->
         </header>
 
         <main>

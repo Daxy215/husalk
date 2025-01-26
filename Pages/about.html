@@ -13,11 +13,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="stylesheet" href="../Css/main.css">
+
+        <script src="../Js/Navbar.js"></script>
     </head>
 
     <body>
         <header>
-            <nav class="NavigationBar" style="text-align: center;">
+            <!--<nav class="NavigationBar" style="text-align: center;">
                 <div class="MainLogo" style="color: #6CA0DC; font-size: 2em; text-decoration: none; white-space: nowrap;">
                     Hussein Al Khayyat
                 </div>
@@ -27,7 +29,29 @@
                     <li style="display: inline; margin: 0 10px;"><a href="portfolio.html">Portfolio</a></li>
                     <li style="display: inline; margin: 0 10px;"><a href="../index.html">Home</a></li>
                 </ul>
-            </nav>
+            </nav>-->
+            <div class="topnav" id="myTopnav">
+                <a href="" class="active">About</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="../index.html">Home</a>
+
+                <!--<div class="dropdown">
+                    <button class="dropbtn">Dropdown
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+
+                    <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </div>-->
+                <a href="javascript:void(0);" class="icon" onclick="toggleNavBar()">&#9776;</a>
+
+                <div class="MainLogo" style="color: #6CA0DC; font-size: 2em; text-decoration: none; white-space: nowrap;">
+                    Hussein Al Khayyat
+                </div>
+            </div>
         </header>
 
         <main>
