@@ -1,0 +1,20 @@
+.section {
+    background-color: #1E1E1E;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.Projects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    row-gap: 20px;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 600px) {
+    .Projects {
+        display: contents;
+    }
+}
