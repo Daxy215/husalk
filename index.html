@@ -1,82 +1,1375 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-        <title>Hussein Al Khayyat - Home</title>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hussein Al Khayyat | Systems Programmer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2ecc71;
+            --dark-bg: #0d1117;
+            --light-text: #f0f6fc;
+            --transition-speed: 0.4s;
+            --card-bg: rgba(22, 27, 34, 0.8);
+            --section-padding: 4rem 1.5rem;
+        }
 
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="This website showcases my projects and tells you who I am.">
-        <meta property="og:type" content="website">
-        <meta property="og:site_name" content="Hussein Al Khayyat">
-        <meta property="og:title" content="Portfolio">
-        <meta property="og:description" content="Portfiolo">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-        <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+        body {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: radial-gradient(circle at top right, #0d1b2a 0%, #1a1a2e 100%);
+            min-height: 100vh;
+            position: relative;
+        }
 
-        <link rel="stylesheet" href="Css/main.css">
-        <!--<link rel="stylesheet" href="Css/games.css">-->
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: var(--primary-color);
+            z-index: 9999;
+            transition: width 0.2s;
+        }
 
-        <script src="Js/Navbar.js"></script>
-    </head>
+        nav {
+            padding: 1rem;
+            background: rgba(13, 17, 23, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(46, 204, 113, 0.1);
+        }
 
-    <body>
-        <header>
-            <!--<nav class="NavigationBar" style="text-align: center;">-->
-                <!-- Navigation links -->
-                <!--<ul style="list-style: none; padding: 0; font-family: Lato; font-size: 1.2em;">
-                    <li style="display: inline; margin: 0 10px;"><a href="Pages/about.html">About me</a></li>
-                    <li style="display: inline; margin: 0 10px;"><a href="Pages/portfolio.html">Portfolio</a></li>
-                    <li style="display: inline; margin: 0 10px;"><a class="active" href="#">Home</a></li>
-                </ul>-->
+        .logo {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+        }
 
-                 <div class="topnav" id="myTopnav">
-                     <a href="" class="active">Home</a>
-                     <a href="Pages/portfolio.html">Portfolio</a>
-                     <a href="Pages/about.html">About</a>
+        .logo i {
+            font-size: 1.2rem;
+        }
 
-                     <!--<div class="dropdown">
-                         <button class="dropbtn">Dropdown
-                             <i class="fa fa-caret-down"></i>
-                         </button>
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
 
-                         <div class="dropdown-content">
-                             <a href="#">Link 1</a>
-                             <a href="#">Link 2</a>
-                             <a href="#">Link 3</a>
-                         </div>
-                     </div>-->
-                     <a href="javascript:void(0);" class="icon" onclick="toggleNavBar()">&#9776;</a>
+        .nav-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: color var(--transition-speed);
+            font-weight: 500;
+            font-size: 1.1rem;
+            position: relative;
+            padding: 0.5rem 0;
+            white-space: nowrap;
+        }
 
-                     <div class="MainLogo" style="color: #6CA0DC; font-size: 2em; text-decoration: none; white-space: nowrap;">
-                         Hussein Al Khayyat
-                     </div>
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            outline: none;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: var(--light-text);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+            border-radius: 3px;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 5rem 1.5rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            z-index: 3;
+        }
+
+        .hero-text {
+            position: relative;
+            z-index: 4;
+            text-align: center;
+            width: 100%;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.2;
+            background: linear-gradient(90deg, #ffffff, var(--primary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 1.8rem;
+            opacity: 0.85;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .tech-item {
+            display: flex;
+            align-items: center;
+            background: rgba(46, 204, 113, 0.1);
+            padding: 0.6rem 1rem;
+            border-radius: 20px;
+            transition: transform var(--transition-speed);
+            border: 1px solid rgba(46, 204, 113, 0.3);
+            backdrop-filter: blur(5px);
+            font-size: 0.9rem;
+        }
+
+        .tech-item:hover {
+            /*color: var(--primary-color);*/
+            transform: translateY(-3px);
+            background: rgba(46, 204, 113, 0.15);
+            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.2);
+        }
+
+        .tech-item i {
+            margin-right: 0.6rem;
+            color: var(--primary-color);
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(45deg, #1f7a4d, #27ae60);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all var(--transition-speed);
+            border: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+            font-size: 1rem;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            box-shadow: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
+        }
+
+        .btn-outline:hover {
+            background: rgba(46, 204, 113, 0.1);
+        }
+
+        .hero-image {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            margin: 0 auto;
+            z-index: 2;
+            border: 2px solid rgba(46, 204, 113, 0.2);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(45deg, #0d2b3d, #1c2e4a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            aspect-ratio: 1/1;
+        }
+
+        .hero-image-content {
+            text-align: center;
+            width: 100%;
+        }
+
+        .hero-image h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary-color);
+        }
+
+        .hero-image p {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-icons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+
+        .tech-icon {
+            font-size: 2.5rem;
+            color: rgba(255, 255, 255, 0.7);
+            transition: all 0.3s ease;
+        }
+
+        .tech-icon:hover {
+            color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .projects {
+            padding: var(--section-padding);
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary-color);
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.8;
+        }
+
+        .project-tabs {
+            margin: 1.5rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem;
+        }
+
+        .tab-button {
+            background: none;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .tab-button.active {
+            background: var(--primary-color);
+            color: var(--dark-bg);
+        }
+
+        .tab-button:hover:not(.active) {
+            background: rgba(46, 204, 113, 0.1);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin-top: 2.5rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp var(--transition-speed) forwards;
+            -webkit-tap-highlight-color: transparent;
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(46, 204, 113, 0.1), transparent);
+            opacity: 0;
+            transition: opacity var(--transition-speed);
+            z-index: -1;
+        }
+
+        .project-card:hover::before {
+            opacity: 0.5;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .project-category {
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 0.6rem;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .project-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .project-card p {
+            font-size: 0.98rem;
+            margin-bottom: 1.2rem;
+            opacity: 0.9;
+            flex-grow: 1;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: auto;
+        }
+
+        .tag {
+            background: rgba(46, 204, 113, 0.15);
+            color: var(--primary-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            padding: 1rem;
+            overflow-y: auto;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity var(--transition-speed), visibility var(--transition-speed);
+        }
+
+        .project-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            max-width: 900px;
+            margin: 1rem auto;
+            padding: 1.5rem;
+            border-radius: 12px;
+            position: relative;
+            width: 100%;
+            z-index: 2001;
+            border: 1px solid rgba(46, 204, 113, 0.2);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-color);
+            transition: transform var(--transition-speed);
+            background: rgba(0, 0, 0, 0.3);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            transform: rotate(90deg);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.8rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(15deg);
+            background: rgba(46, 204, 113, 0.2);
+        }
+
+        .video-container {
+            width: 100%;
+            margin: 1.5rem 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        }
+
+        .project-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .achievement-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--primary-color);
+            color: var(--dark-bg);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0.4;
+        }
+
+        .contact {
+            padding: var(--section-padding);
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            background: rgba(10, 15, 20, 0.5);
+            margin-top: 3rem;
+        }
+
+        .contact h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        .contact p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .contact-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Menu Styles */
+        .nav-links.active {
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100vh;
+            width: 70%;
+            background: rgba(13, 17, 23, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 5rem 2rem;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 2rem;
+            transform: translateX(0);
+            transition: transform 0.4s ease;
+            z-index: 1000;
+        }
+
+        .nav-links {
+            display: none;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Media Queries */
+        @media (min-width: 768px) {
+            .hero-content {
+                flex-direction: row;
+                text-align: left;
+                gap: 4rem;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .tech-stack {
+                justify-content: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .nav-links {
+                display: flex;
+            }
+
+            .hamburger {
+                display: none;
+            }
+
+            .hero-image {
+                max-width: 450px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .hero-image {
+                max-width: 500px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding-top: 4rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .contact h2 {
+                font-size: 1.8rem;
+            }
+
+            .tab-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .btn {
+                padding: 0.7rem 1.3rem;
+                font-size: 0.95rem;
+            }
+
+            .modal-content {
+                padding: 1.2rem;
+            }
+        }
+
+        [data-theme="light"] {
+            --dark-bg: #f5f8fa;
+            --light-text: #1a1a1a;
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --primary-color: #27ae60;
+        }
+
+        [data-theme="light"] .project-card,
+        [data-theme="light"] .modal-content {
+            background: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="light"] body {
+            background: linear-gradient(135deg, #e0f7fa 0%, #f5f5f5 100%);
+        }
+
+        [data-theme="light"] nav {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="light"] .tech-item {
+            background: rgba(39, 174, 96, 0.1);
+            border: 1px solid rgba(39, 174, 96, 0.2);
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 3px;
+        }
+    </style>
+</head>
+<body>
+<div class="scroll-progress" id="progressBar"></div>
+<div class="theme-toggle" onclick="toggleTheme()">
+    <i class="fas fa-moon"></i>
+</div>
+
+<nav>
+    <a href="#" class="logo"><i class="fas fa-microchip"></i> Hussein Al Khayyat</a>
+    <button class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<section id="home" class="hero">
+    <canvas class="particles" id="particleCanvas"></canvas>
+
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1 styles="pos">Systems & Game Programmer</h1>
+            <p>Building complex systems from silicon to software with expertise in emulation, compilers, and game engines.</p>
+
+            <div class="tech-stack">
+                <div class="tech-item">
+                    <i class="fas fa-microchip"></i>
+                    Low-Level
                 </div>
-            <!--</nav>-->
-        </header>
 
-        <main>
-            <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
-                <h1 style="color: #FFFFFF; font-family: Roboto, serif; font-size: 4em; margin: 0;">Home</h1>
+                <div class="tech-item">
+                    <i class="fas fa-gamepad"></i>
+                    Game Dev
+                </div>
+
+                <div class="tech-item">
+                    <i class="fas fa-cogs"></i>
+                    Systems
+                </div>
+
+                <div class="tech-item">
+                    <i class="fas fa-code"></i>
+                    Compilers
+                </div>
             </div>
 
-            <h1 style="max-width: 75%; margin: 0 auto; font-family: 'Roboto', sans-serif; font-size: 1.8em; color: #B5B5B5; padding: 20px;">
-                Hi, I am Hussein Al Khayyat, a Game Developer that is currently
-                studying at Abertay in my fourth and final year.
-                <br><br>
-                I am passionate about systems programming, and I enjoy working on projects,
-                such as Game Engines, writing emulators or even compilers.
-                My recent project is a Game Boy emulator.
-                <br><br>
-                I am currently working on my honour project, and it's based on writing
-                a PS1 emulator with post-processing shaders.
-            </h1>
-
-            <h3 class="learnMoreBtn" style="text-align: center;">
-                <a href="Pages/about.html" style="font-family: Lato; color: #000; font-size: 1.2em; text-decoration: none;">
-                    Learn More.
+            <div class="hero-buttons">
+                <a href="#projects" class="btn">
+                    <i class="fas fa-code"></i> View Projects
                 </a>
-            </h3>
-        </main>
-    </body>
-<html>
+                <a href="#contact" class="btn btn-outline">
+                    <i class="fas fa-paper-plane"></i> Contact Me
+                </a>
+            </div>
+        </div>
+
+        <!--<div class="hero-image">
+            <div class="hero-image-content">
+                <h3>Specializing in Complex Systems</h3>
+                <p>Emulation • Compilers • Game Engines</p>
+                <div class="tech-icons">
+                    <i class="fab fa-cuttlefish tech-icon" title="C/C++"></i>
+                    <i class="fab fa-rust tech-icon" title="Rust"></i>
+                    <i class="fab fa-java tech-icon" title="Java"></i>
+                    <i class="fas fa-gamepad tech-icon" title="Game Development"></i>
+                </div>
+            </div>
+        </div>-->
+    </div>
+</section>
+
+<section id="projects" class="projects">
+    <div class="section-header">
+        <h2>Featured Projects</h2>
+        <p>Explore my work in emulation, game development, and system programming</p>
+    </div>
+
+    <div class="project-tabs">
+        <button class="tab-button active" onclick="filterProjects('all')">All</button>
+        <button class="tab-button" onclick="filterProjects('emulator')">Emulators</button>
+        <button class="tab-button" onclick="filterProjects('system')">Systems</button>
+        <button class="tab-button" onclick="filterProjects('game')">Games</button>
+    </div>
+
+    <div class="project-grid">
+        <!-- Game Boy Emulator -->
+        <div class="project-card" data-category="emulator" onclick="openModal('gb-modal')">
+            <span class="project-category">Emulator</span>
+            <h3>Game Boy Emulator</h3>
+            <p>A Game Boy and Game Boy Color emulator with debugger support.</p>
+            <div class="project-tags">
+                <span class="tag">C++</span>
+                <span class="tag">SDL2</span>
+                <span class="tag">Z80</span>
+            </div>
+        </div>
+
+        <!-- PS1 Emulator -->
+        <div class="project-card" data-category="emulator" onclick="openModal('ps1-modal')">
+            <span class="project-category">Emulator</span>
+            <h3>PlayStation 1 Emulator</h3>
+            <p>Cycle-accurate MIPS R3000A emulation with advanced graphics.</p>
+            <div class="project-tags">
+                <span class="tag">C++</span>
+                <span class="tag">OpenGL</span>
+                <span class="tag">MIPS</span>
+                <span class="tag">ImGui</span>
+            </div>
+        </div>
+
+        <!-- Compiler -->
+        <div class="project-card" data-category="system" onclick="openModal('compiler-modal')">
+            <span class="project-category">Compiler</span>
+            <h3>Custom Compiler</h3>
+            <p>A compiler for a C-like language with code generation capabilities.</p>
+            <div class="project-tags">
+                <span class="tag">C++</span>
+                <span class="tag">Compiler</span>
+                <span class="tag">x86</span>
+            </div>
+        </div>
+
+        <!-- Game Engine -->
+        <div class="project-card" data-category="system" onclick="openModal('engine-modal')">
+            <span class="project-category">Game Engine</span>
+            <h3>Custom Game Engine</h3>
+            <p>A 2D/3D game engine built from scratch with Java.</p>
+            <div class="project-tags">
+                <span class="tag">Java</span>
+                <span class="tag">OpenGL</span>
+                <span class="tag">ECS</span>
+            </div>
+        </div>
+
+        <!-- Book of Abominations Card -->
+        <div class="project-card" data-category="game" onclick="openModal('boa-modal')">
+            <span class="project-category">Game</span>
+            <h3>Book of Abominations</h3>
+            <p>Eldritch horror monster-collecting RPG on Steam</p>
+            <div class="project-tags">
+                <span class="tag">Unity</span>
+                <span class="tag">C#</span>
+                <span class="tag">Steam</span>
+                <span class="tag">Team Project</span>
+            </div>
+        </div>
+
+        <!-- Linker -->
+        <!--<div class="project-card" data-category="game" onclick="openModal('linker-modal')">
+            <span class="project-category">Game</span>
+            <h3>Linker</h3>
+            <p>A base-building and combat game developed for a Game Jam.</p>
+            <div class="project-tags">
+                <span class="tag">Java</span>
+                <span class="tag">Game Dev</span>
+                <span class="tag">Custom Engine</span>
+            </div>
+        </div>-->
+    </div>
+</section>
+
+<section id="contact" class="contact">
+    <h2>Get in Touch</h2>
+    <p>I'm always open to discussing new projects, collaborations, or opportunities</p>
+    <div class="contact-buttons">
+        <a href="mailto:smsmkhaldon@gmail.com" class="btn">
+            <i class="fas fa-envelope"></i> Email Me
+        </a>
+        <a href="https://github.com/Daxy215" class="btn btn-outline" target="_blank">
+            <i class="fab fa-github"></i> GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/hussein-al-khayyat-45b158166/" class="btn btn-outline" target="_blank">
+            <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+    </div>
+</section>
+
+<!-- Project Modals -->
+<div id="gb-modal" class="project-modal">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('gb-modal')">&times;</span>
+        <h2>Game Boy Emulator</h2>
+        <p style="font-size: 1.1rem; margin-top: 1rem; opacity: 0.9;">
+            A Game Boy and Game Boy Color emulator with debugger support. Built to learn about system programming and hardware emulation.
+        </p>
+
+        <div class="video-container">
+            <video class="project-video" autoplay muted loop controls>
+                <source src="../Videos/GameBoy-Zelda.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div style="background: rgba(46, 204, 113, 0.1); padding: 1.2rem; border-radius: 10px; margin: 1.2rem 0;">
+            <h3 style="color: var(--primary-color); margin-bottom: 0.8rem; font-size: 1.2rem;">Project Details</h3>
+            <ul style="padding-left: 1.2rem; font-size: 0.98rem;">
+                <li style="margin-bottom: 0.6rem;">Supports most Game Boy and Game Boy Color games</li>
+                <li style="margin-bottom: 0.6rem;">Includes debugging tools for CPU and memory inspection</li>
+                <li style="margin-bottom: 0.6rem;">Audio implementation is currently in progress</li>
+                <li>Future plans include improving compatibility and adding Game Boy Color support</li>
+            </ul>
+        </div>
+
+        <div class="btn-group" style="display: flex; gap: 0.8rem; margin-top: 1.2rem; flex-wrap: wrap;">
+            <a href="https://github.com/Daxy215/Gameboy-Emulator" class="btn" target="_blank">
+                <i class="fab fa-github"></i> View on GitHub
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="ps1-modal" class="project-modal">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('ps1-modal')">&times;</span>
+        <h2>PlayStation 1 Emulator</h2>
+        <p style="font-size: 1.1rem; margin-top: 1rem; opacity: 0.9;">
+            A cycle-accurate MIPS R3000A emulator with advanced graphics features. Built with C++, OpenGL, and ImGui.
+        </p>
+
+        <div class="video-container">
+            <video class="project-video" autoplay muted loop controls>
+                <source src="../Videos/PS1-Crash.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div style="background: rgba(46, 204, 113, 0.1); padding: 1.2rem; border-radius: 10px; margin: 1.2rem 0;">
+            <h3 style="color: var(--primary-color); margin-bottom: 0.8rem; font-size: 1.2rem;">Key Features</h3>
+            <ul style="padding-left: 1.2rem; font-size: 0.98rem;">
+                <li style="margin-bottom: 0.6rem;">Cycle-accurate MIPS R3000A CPU emulation</li>
+                <li style="margin-bottom: 0.6rem;">Advanced GPU emulation with texture support</li>
+                <li style="margin-bottom: 0.6rem;">Post-processing shaders: upscaling, bloom, and CRT effects</li>
+                <li style="margin-bottom: 0.6rem;">CRT effects include scanlines, noise, and edge darkness</li>
+                <li>ImGui-based debug interface for system inspection</li>
+            </ul>
+        </div>
+
+        <div class="btn-group" style="display: flex; gap: 0.8rem; margin-top: 1.2rem; flex-wrap: wrap;">
+            <a href="https://github.com/Daxy215/PS1Emulator" class="btn" target="_blank">
+                <i class="fab fa-github"></i> View on GitHub
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="compiler-modal" class="project-modal">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('compiler-modal')">&times;</span>
+        <h2>Custom Compiler</h2>
+        <p style="font-size: 1.1rem; margin-top: 1rem; opacity: 0.9;">
+            A runtime compiler for a C-like language, generating x86 assembly code.
+        </p>
+
+        <div class="video-container">
+            <video class="project-video" autoplay muted loop controls>
+                <source src="../Videos/Compiler.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div style="background: rgba(46, 204, 113, 0.1); padding: 1.2rem; border-radius: 10px; margin: 1.2rem 0;">
+            <h3 style="color: var(--primary-color); margin-bottom: 0.8rem; font-size: 1.2rem;">Technical Details</h3>
+            <ul style="padding-left: 1.2rem; font-size: 0.98rem;">
+                <li style="margin-bottom: 0.6rem;">Full compilation pipeline: lexer, parser, semantic analysis</li>
+                <li style="margin-bottom: 0.6rem;">Intermediate representation and code generation</li>
+                <li style="margin-bottom: 0.6rem;">Originally designed as an interpreter, evolved to compiler</li>
+                <li>Built to learn assembly and low-level programming concepts</li>
+            </ul>
+        </div>
+
+        <div class="btn-group" style="display: flex; gap: 0.8rem; margin-top: 1.2rem; flex-wrap: wrap;">
+            <a href="https://github.com/Daxy215/Compiler" class="btn" target="_blank">
+                <i class="fab fa-github"></i> View on GitHub
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="engine-modal" class="project-modal">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('engine-modal')">&times;</span>
+        <h2>Custom Game Engine</h2>
+        <p style="font-size: 1.1rem; margin-top: 1rem; opacity: 0.9;">
+            A 2D/3D game engine built from scratch in Java, featuring ECS architecture.
+        </p>
+
+        <div class="video-container">
+            <video class="project-video" autoplay muted loop controls>
+                <source src="../Videos/GameEngine.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div style="background: rgba(46, 204, 113, 0.1); padding: 1.2rem; border-radius: 10px; margin: 1.2rem 0;">
+            <h3 style="color: var(--primary-color); margin-bottom: 0.8rem; font-size: 1.2rem;">Engine Capabilities</h3>
+            <ul style="padding-left: 1.2rem; font-size: 0.98rem;">
+                <li style="margin-bottom: 0.6rem;">Entity-Component-System architecture</li>
+                <li style="margin-bottom: 0.6rem;">Custom rendering pipeline with OpenGL</li>
+                <li style="margin-bottom: 0.6rem;">Used for multiple projects including a Minecraft clone</li>
+                <li style="margin-bottom: 0.6rem;">Currently being refactored for better architecture</li>
+                <li>Supports complex simulations with many objects</li>
+            </ul>
+        </div>
+
+        <div class="btn-group" style="display: flex; gap: 0.8rem; margin-top: 1.2rem; flex-wrap: wrap;">
+            <a href="https://github.com/Daxy215/Anix-Java" class="btn" target="_blank">
+                <i class="fab fa-github"></i> View on GitHub
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Book of Abominations Modal -->
+<div id="boa-modal" class="project-modal">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('boa-modal')">&times;</span>
+        <h2>Book of Abominations</h2>
+        <p style="font-size: 1.1rem; margin-top: 1rem; opacity: 0.9;">
+            Creature-collecting RPG steeped in Eldritch horror, developed with Unity and published on Steam.
+        </p>
+
+        <!--<div class="video-container">
+            <video class="project-video" autoplay muted loop controls>
+                <source src="../Videos/BookOfAbominations.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>-->
+
+        <div style="background: rgba(46, 204, 113, 0.1); padding: 1.2rem; border-radius: 10px; margin: 1.2rem 0;">
+            <h3 style="color: var(--primary-color); margin-bottom: 0.8rem; font-size: 1.2rem;">Project Details</h3>
+            <ul style="padding-left: 1.2rem; font-size: 0.98rem;">
+                <li style="margin-bottom: 0.6rem;"><strong>Role:</strong> Main Programmer (Team of 4)</li>
+                <li style="margin-bottom: 0.6rem;"><strong>Engine:</strong> Unity with C#</li>
+                <li style="margin-bottom: 0.6rem;">Developed dynamic turn-based combat system</li>
+                <li style="margin-bottom: 0.6rem;">Implemented monster mutation/evolution mechanics</li>
+                <li>Created puzzle-solving mechanics using monster abilities</li>
+            </ul>
+
+            <h3 style="color: var(--primary-color); margin: 1.2rem 0 0.8rem; font-size: 1.2rem;">Key Features</h3>
+            <ul style="padding-left: 1.2rem; font-size: 0.98rem;">
+                <li style="margin-bottom: 0.6rem;">Capture and mutate Lovecraftian abominations</li>
+                <li style="margin-bottom: 0.6rem;">Explore Halflight Isle - a remote fishing community with supernatural history</li>
+                <li style="margin-bottom: 0.6rem;">Strategic turn-based combat with status effects and buffs/debuffs</li>
+                <li>Befriend NPCs and use monster abilities to solve puzzles</li>
+            </ul>
+        </div>
+
+        <div class="btn-group" style="display: flex; gap: 0.8rem; margin-top: 1.2rem; flex-wrap: wrap;">
+            <a href="https://store.steampowered.com/app/3291120/Book_of_Abominations/" class="btn" target="_blank">
+                <i class="fab fa-steam"></i> View on Steam
+            </a>
+            <a href="https://studio-catloaf.itch.io/book-of-abominations" class="btn btn-outline" target="_blank">
+                <i class="fas fa-download"></i> Itch.io Demo
+            </a>
+        </div>
+    </div>
+</div>
+
+<!--<div id="linker-modal" class="project-modal">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('linker-modal')">&times;</span>
+        <h2>Linker</h2>
+        <p style="font-size: 1.1rem; margin-top: 1rem; opacity: 0.9;">
+            A base-building and combat game developed in one week for a Game Jam.
+        </p>
+
+        <div class="video-container">
+            <video class="project-video" autoplay muted loop controls>
+                <source src="../Videos/Linker.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div style="background: rgba(46, 204, 113, 0.1); padding: 1.2rem; border-radius: 10px; margin: 1.2rem 0;">
+            <h3 style="color: var(&#45;&#45;primary-color); margin-bottom: 0.8rem; font-size: 1.2rem;">Game Details</h3>
+            <ul style="padding-left: 1.2rem; font-size: 0.98rem;">
+                <li style="margin-bottom: 0.6rem;">Built with a custom Java game engine</li>
+                <li style="margin-bottom: 0.6rem;">Features base-building and combat mechanics</li>
+                <li style="margin-bottom: 0.6rem;">All assets created from scratch</li>
+                <li>Developed under tight deadline for Game Jam</li>
+            </ul>
+        </div>
+
+        <div class="btn-group" style="display: flex; gap: 0.8rem; margin-top: 1.2rem; flex-wrap: wrap;">
+            <a href="https://github.com/Daxy215" class="btn" target="_blank">
+                <i class="fab fa-github"></i> View on GitHub
+            </a>
+        </div>
+    </div>
+</div>-->
+
+<script>
+    // Mobile navigation toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
+    });
+
+    // Initialize projects on load
+    document.addEventListener('DOMContentLoaded', () => {
+        filterProjects('all');
+        initParticles();
+        animate();
+
+        // Initialize Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.project-card').forEach(card => observer.observe(card));
+    });
+
+    // Scroll Progress
+    window.onscroll = () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        document.getElementById('progressBar').style.width = (winScroll / height) * 100 + "%";
+
+        // Hide mobile menu when scrolling
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+    };
+
+    // Theme Toggle
+    function toggleTheme() {
+        const body = document.body;
+        const icon = document.querySelector('.theme-toggle i');
+        const newTheme = body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        body.setAttribute('data-theme', newTheme);
+        icon.className = newTheme === 'light' ? 'fas fa-sun' : 'fas fa-moon';
+
+        // Save theme preference
+        localStorage.setItem('theme', newTheme);
+    }
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        document.body.setAttribute('data-theme', savedTheme);
+        document.querySelector('.theme-toggle i').className = savedTheme === 'light' ? 'fas fa-sun' : 'fas fa-moon';
+    }
+
+    // Project Filter
+    function filterProjects(category) {
+        document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.style.display = category === 'all' || card.dataset.category === category ? 'block' : 'none';
+        });
+    }
+
+    // Modal Handling
+    function openModal(id) {
+        const modal = document.getElementById(id);
+        if (modal) {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+
+            // Play the video when modal opens
+            const video = modal.querySelector('video');
+            if (video) {
+                video.play();
+            }
+        }
+    }
+
+    function closeModal(id) {
+        const modal = document.getElementById(id);
+        if (modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+
+            // Pause the video when modal closes
+            const video = modal.querySelector('video');
+            if (video) {
+                video.pause();
+            }
+        }
+    }
+
+    // Particle System
+    const canvas = document.getElementById('particleCanvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    // Particle class
+    class Particle {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 2 + 1;
+            this.speedX = Math.random() * 2 - 1;
+            this.speedY = Math.random() * 2 - 1;
+            this.color = `rgba(46, 204, 113, ${Math.random() * 0.4 + 0.3})`;
+        }
+
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+
+            if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX;
+            if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY;
+        }
+
+        draw() {
+            ctx.fillStyle = this.color;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Add glow effect
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = this.color;
+        }
+    }
+
+    // Create particles
+    function initParticles() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        particles = [];
+
+        const particleCount = window.innerWidth / 6;
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+    }
+
+    // Animation loop
+    function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        for (let i = 0; i < particles.length; i++) {
+            particles[i].update();
+            particles[i].draw();
+
+            // Draw connections between particles
+            for (let j = i; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < 120) {
+                    ctx.beginPath();
+                    ctx.strokeStyle = `rgba(46, 204, 113, ${0.1 * (1 - distance/120)})`;
+                    ctx.lineWidth = 0.4;
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.stroke();
+                }
+            }
+        }
+
+        requestAnimationFrame(animateParticles);
+    }
+
+    // Initialize and animate
+    function initParticleSystem() {
+        initParticles();
+        animateParticles();
+    }
+
+    // Handle resize
+    window.addEventListener('resize', initParticles);
+
+    // Initialize particle system
+    initParticleSystem();
+
+    // Click outside modal
+    window.addEventListener('click', (event) => {
+        if (event.target.classList.contains('project-modal')) {
+            closeModal(event.target.id);
+        }
+    });
+
+    // ESC key close
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            const openModal = document.querySelector('.project-modal.active');
+            if (openModal) closeModal(openModal.id);
+        }
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                window.scrollTo({
+                    top: target.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+</script>
+</body>
+</html>
