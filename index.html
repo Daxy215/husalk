@@ -69,7 +69,6 @@
             pointer-events: none;
         }
 
-        /* Hardware acceleration for animations */
         .project-card {
             will-change: transform;
             transform: translateZ(0);
@@ -706,6 +705,9 @@
 </head>
 <body>
 <div class="scroll-progress" id="progressBar"></div>
+<div class="theme-toggle" onclick="toggleTheme()">
+    <i class="fas fa-moon"></i>
+</div>
 
 <nav>
     <a href="#" class="logo"><i class="fas fa-microchip"></i> Hussein Al Khayyat</a>
@@ -727,7 +729,7 @@
     <div class="hero-content">
         <div class="hero-text">
             <h1>Systems & Game Programmer</h1>
-            <p  style="font-weight:bold;">Building complex systems from silicon to software with expertise in emulation, compilers, and game engines.</p>
+            <p>Building complex systems from silicon to software with expertise in emulation, compilers, and game engines.</p>
 
             <div class="tech-stack">
                 <div class="tech-item">
@@ -770,15 +772,15 @@
     </div>
 
     <div class="project-tabs">
-        <button class="tab-button active" onclick="filterProjects('all')">All</button>
-        <button class="tab-button" onclick="filterProjects('emulator')">Emulators</button>
-        <button class="tab-button" onclick="filterProjects('system')">Systems</button>
-        <button class="tab-button" onclick="filterProjects('game')">Games</button>
+        <button class="tab-button active" data-category="all">All</button>
+        <button class="tab-button" data-category="emulator">Emulators</button>
+        <button class="tab-button" data-category="system">Systems</button>
+        <button class="tab-button" data-category="game">Games</button>
     </div>
 
     <div class="project-grid">
         <!-- Game Boy Emulator -->
-        <div class="project-card" data-category="emulator" onclick="openModal('gb-modal')">
+        <div class="project-card" data-category="emulator" data-modal="gb-modal">
             <span class="project-category">Emulator</span>
             <h3>Game Boy Emulator</h3>
             <p>A Game Boy and Game Boy Color emulator with debugger support.</p>
@@ -790,7 +792,7 @@
         </div>
 
         <!-- PS1 Emulator -->
-        <div class="project-card" data-category="emulator" onclick="openModal('ps1-modal')">
+        <div class="project-card" data-category="emulator" data-modal="ps1-modal">
             <span class="project-category">Emulator</span>
             <h3>PlayStation 1 Emulator</h3>
             <p>Cycle-accurate MIPS R3000A emulation with advanced graphics.</p>
@@ -803,7 +805,7 @@
         </div>
 
         <!-- Compiler -->
-        <div class="project-card" data-category="system" onclick="openModal('compiler-modal')">
+        <div class="project-card" data-category="system" data-modal="compiler-modal">
             <span class="project-category">Compiler</span>
             <h3>Custom Compiler</h3>
             <p>A compiler for a C-like language with code generation capabilities.</p>
@@ -815,7 +817,7 @@
         </div>
 
         <!-- Game Engine -->
-        <div class="project-card" data-category="system" onclick="openModal('engine-modal')">
+        <div class="project-card" data-category="system" data-modal="engine-modal">
             <span class="project-category">Game Engine</span>
             <h3>Custom Game Engine</h3>
             <p>A 2D/3D game engine built from scratch with Java.</p>
@@ -827,7 +829,7 @@
         </div>
 
         <!-- Book of Abominations Card -->
-        <div class="project-card" data-category="game" onclick="openModal('boa-modal')">
+        <div class="project-card" data-category="game" data-modal="boa-modal">
             <span class="project-category">Game</span>
             <h3>Book of Abominations</h3>
             <p>Eldritch horror monster-collecting RPG on Steam</p>
@@ -860,7 +862,7 @@
 <!-- Project Modals -->
 <div id="gb-modal" class="project-modal">
     <div class="modal-content">
-        <span class="modal-close" onclick="closeModal('gb-modal')">&times;</span>
+        <span class="modal-close">&times;</span>
         <h2>Game Boy Emulator</h2>
         <p style="font-size: 1.1rem; margin-top: 1rem; opacity: 0.9;">
             A Game Boy and Game Boy Color emulator with debugger support. Built to learn about system programming and hardware emulation.
@@ -893,7 +895,7 @@
 
 <div id="ps1-modal" class="project-modal">
     <div class="modal-content">
-        <span class="modal-close" onclick="closeModal('ps1-modal')">&times;</span>
+        <span class="modal-close">&times;</span>
         <h2>PlayStation 1 Emulator</h2>
         <p style="font-size: 1.1rem; margin-top: 1rem; opacity: 0.9;">
             A cycle-accurate MIPS R3000A emulator with advanced graphics features. Built with C++, OpenGL, and ImGui.
@@ -927,7 +929,7 @@
 
 <div id="compiler-modal" class="project-modal">
     <div class="modal-content">
-        <span class="modal-close" onclick="closeModal('compiler-modal')">&times;</span>
+        <span class="modal-close">&times;</span>
         <h2>Custom Compiler</h2>
         <p style="font-size: 1.1rem; margin-top: 1rem; opacity: 0.9;">
             A runtime compiler for a C-like language, generating x86 assembly code.
@@ -960,7 +962,7 @@
 
 <div id="engine-modal" class="project-modal">
     <div class="modal-content">
-        <span class="modal-close" onclick="closeModal('engine-modal')">&times;</span>
+        <span class="modal-close">&times;</span>
         <h2>Custom Game Engine</h2>
         <p style="font-size: 1.1rem; margin-top: 1rem; opacity: 0.9;">
             A 2D/3D game engine built from scratch in Java, featuring ECS architecture.
@@ -995,7 +997,7 @@
 <!-- Book of Abominations Modal -->
 <div id="boa-modal" class="project-modal">
     <div class="modal-content">
-        <span class="modal-close" onclick="closeModal('boa-modal')">&times;</span>
+        <span class="modal-close">&times;</span>
         <h2>Book of Abominations</h2>
         <p style="font-size: 1.1rem; margin-top: 1rem; opacity: 0.9;">
             Creature-collecting RPG steeped in Eldritch horror, developed with Unity and published on Steam.
@@ -1032,17 +1034,153 @@
 </div>
 
 <script>
+    // Mobile navigation toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
+    });
+
+    // Initialize projects on load
+    document.addEventListener('DOMContentLoaded', () => {
+        filterProjects('all');
+        initParticleSystem();
+        setupEventListeners();
+
+        // Initialize Intersection Observer for lazy animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.project-card').forEach(card => observer.observe(card));
+    });
+
+    // Scroll Progress
+    window.onscroll = () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        document.getElementById('progressBar').style.width = (winScroll / height) * 100 + "%";
+
+        // Hide mobile menu when scrolling
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+    };
+
+    // Theme Toggle
+    function toggleTheme() {
+        const body = document.body;
+        const icon = document.querySelector('.theme-toggle i');
+        const newTheme = body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        body.setAttribute('data-theme', newTheme);
+        icon.className = newTheme === 'light' ? 'fas fa-sun' : 'fas fa-moon';
+
+        // Save theme preference
+        localStorage.setItem('theme', newTheme);
+    }
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        document.body.setAttribute('data-theme', savedTheme);
+        document.querySelector('.theme-toggle i').className = savedTheme === 'light' ? 'fas fa-sun' : 'fas fa-moon';
+    }
+
+    // Project Filter
+    function filterProjects(category) {
+        document.querySelectorAll('.tab-button').forEach(btn => {
+            if (btn.dataset.category === category) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.style.display = category === 'all' || card.dataset.category === category ? 'block' : 'none';
+        });
+    }
+
+    // Modal Handling
+    function openModal(id) {
+        const modal = document.getElementById(id);
+        if (modal) {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+
+            // Play the video when modal opens
+            const video = modal.querySelector('video');
+            if (video) {
+                video.play().catch(e => console.log("Video play prevented:", e));
+            }
+        }
+    }
+
+    function closeModal(id) {
+        const modal = document.getElementById(id);
+        if (modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+
+            // Pause the video when modal closes
+            const video = modal.querySelector('video');
+            if (video) {
+                video.pause();
+            }
+        }
+    }
+
+    // Setup event listeners
+    function setupEventListeners() {
+        // Tab buttons
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', () => {
+                filterProjects(button.dataset.category);
+            });
+        });
+
+        // Project cards
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('click', () => {
+                openModal(card.dataset.modal);
+            });
+        });
+
+        // Modal close buttons
+        document.querySelectorAll('.modal-close').forEach(closeBtn => {
+            closeBtn.addEventListener('click', () => {
+                const modal = closeBtn.closest('.project-modal');
+                closeModal(modal.id);
+            });
+        });
+    }
+
+    // FIXED Particle System
     const canvas = document.getElementById('particleCanvas');
     const ctx = canvas.getContext('2d');
     let particles = [];
     let animationId = null;
 
-    // Particle class
+    // Enhanced Particle class
     class Particle {
         constructor() {
             this.x = Math.random() * canvas.width;
             this.y = Math.random() * canvas.height;
-            this.size = Math.random() * 2 + 1; // Size between 2-6px
+            this.size = Math.random() * 4 + 2; // Size between 2-6px
             this.speedX = Math.random() * 3 - 1.5;
             this.speedY = Math.random() * 3 - 1.5;
             this.color = `rgba(46, 204, 113, ${Math.random() * 0.6 + 0.4})`; // Higher opacity
@@ -1072,12 +1210,10 @@
             // Draw glow
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.glowSize, 0, Math.PI * 2);
-
             const gradient = ctx.createRadialGradient(
                 this.x, this.y, 0,
                 this.x, this.y, this.glowSize
             );
-
             gradient.addColorStop(0, `rgba(46, 204, 113, ${this.glowOpacity})`);
             gradient.addColorStop(1, 'rgba(46, 204, 113, 0)');
             ctx.fillStyle = gradient;
@@ -1170,12 +1306,34 @@
         }, 250);
     });
 
-    // Initialize particles when DOM is fully loaded
-    document.addEventListener('DOMContentLoaded', () => {
-        // Initialize particle system after a small delay to ensure CSS is applied
-        setTimeout(initParticleSystem, 100);
+    // Click outside modal
+    window.addEventListener('click', (event) => {
+        if (event.target.classList.contains('project-modal')) {
+            closeModal(event.target.id);
+        }
+    });
+
+    // ESC key close
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            const openModal = document.querySelector('.project-modal.active');
+            if (openModal) closeModal(openModal.id);
+        }
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                window.scrollTo({
+                    top: target.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            }
+        });
     });
 </script>
-
 </body>
 </html>
