@@ -6,6 +6,13 @@
     <title>Hussein Al Khayyat | Systems Programmer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
         :root {
             --primary-color: #2ecc71;
             --dark-bg: #0d1117;
@@ -13,13 +20,6 @@
             --transition-speed: 0.4s;
             --card-bg: rgba(22, 27, 34, 0.8);
             --section-padding: 4rem 1.5rem;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
@@ -40,6 +40,7 @@
             background: var(--primary-color);
             z-index: 9999;
             transition: width 0.2s;
+            will-change: width;
         }
 
         nav {
@@ -55,6 +56,31 @@
             justify-content: space-between;
             align-items: center;
             border-bottom: 1px solid rgba(46, 204, 113, 0.1);
+            will-change: transform;
+        }
+
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Hardware acceleration for animations */
+        .project-card {
+            will-change: transform;
+            transform: translateZ(0);
+        }
+
+        .tech-icon {
+            will-change: transform;
+        }
+
+        .btn {
+            will-change: transform;
         }
 
         .logo {
@@ -196,7 +222,6 @@
         }
 
         .tech-item:hover {
-            /*color: var(--primary-color);*/
             transform: translateY(-3px);
             background: rgba(46, 204, 113, 0.15);
             box-shadow: 0 5px 15px rgba(46, 204, 113, 0.2);
@@ -244,61 +269,6 @@
 
         .btn-outline:hover {
             background: rgba(46, 204, 113, 0.1);
-        }
-
-        .hero-image {
-            position: relative;
-            border-radius: 15px;
-            overflow: hidden;
-            width: 100%;
-            max-width: 400px;
-            height: auto;
-            margin: 0 auto;
-            z-index: 2;
-            border: 2px solid rgba(46, 204, 113, 0.2);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-            background: linear-gradient(45deg, #0d2b3d, #1c2e4a);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1.5rem;
-            aspect-ratio: 1/1;
-        }
-
-        .hero-image-content {
-            text-align: center;
-            width: 100%;
-        }
-
-        .hero-image h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.8rem;
-            color: var(--primary-color);
-        }
-
-        .hero-image p {
-            font-size: 1rem;
-            opacity: 0.9;
-            margin-bottom: 1.5rem;
-        }
-
-        .tech-icons {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1.2rem;
-            margin-top: 1.5rem;
-        }
-
-        .tech-icon {
-            font-size: 2.5rem;
-            color: rgba(255, 255, 255, 0.7);
-            transition: all 0.3s ease;
-        }
-
-        .tech-icon:hover {
-            color: var(--primary-color);
-            transform: translateY(-5px);
         }
 
         .projects {
@@ -554,17 +524,6 @@
             box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
         }
 
-        .particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            pointer-events: none;
-            opacity: 0.4;
-        }
-
         .contact {
             padding: var(--section-padding);
             position: relative;
@@ -668,19 +627,11 @@
             .hamburger {
                 display: none;
             }
-
-            .hero-image {
-                max-width: 450px;
-            }
         }
 
         @media (min-width: 992px) {
             .hero h1 {
                 font-size: 3.5rem;
-            }
-
-            .hero-image {
-                max-width: 500px;
             }
         }
 
@@ -755,9 +706,6 @@
 </head>
 <body>
 <div class="scroll-progress" id="progressBar"></div>
-<div class="theme-toggle" onclick="toggleTheme()">
-    <i class="fas fa-moon"></i>
-</div>
 
 <nav>
     <a href="#" class="logo"><i class="fas fa-microchip"></i> Hussein Al Khayyat</a>
@@ -778,7 +726,7 @@
 
     <div class="hero-content">
         <div class="hero-text">
-            <h1 styles="pos">Systems & Game Programmer</h1>
+            <h1>Systems & Game Programmer</h1>
             <p>Building complex systems from silicon to software with expertise in emulation, compilers, and game engines.</p>
 
             <div class="tech-stack">
@@ -812,19 +760,6 @@
                 </a>
             </div>
         </div>
-
-        <!--<div class="hero-image">
-            <div class="hero-image-content">
-                <h3>Specializing in Complex Systems</h3>
-                <p>Emulation • Compilers • Game Engines</p>
-                <div class="tech-icons">
-                    <i class="fab fa-cuttlefish tech-icon" title="C/C++"></i>
-                    <i class="fab fa-rust tech-icon" title="Rust"></i>
-                    <i class="fab fa-java tech-icon" title="Java"></i>
-                    <i class="fas fa-gamepad tech-icon" title="Game Development"></i>
-                </div>
-            </div>
-        </div>-->
     </div>
 </section>
 
@@ -903,18 +838,6 @@
                 <span class="tag">Team Project</span>
             </div>
         </div>
-
-        <!-- Linker -->
-        <!--<div class="project-card" data-category="game" onclick="openModal('linker-modal')">
-            <span class="project-category">Game</span>
-            <h3>Linker</h3>
-            <p>A base-building and combat game developed for a Game Jam.</p>
-            <div class="project-tags">
-                <span class="tag">Java</span>
-                <span class="tag">Game Dev</span>
-                <span class="tag">Custom Engine</span>
-            </div>
-        </div>-->
     </div>
 </section>
 
@@ -944,7 +867,7 @@
         </p>
 
         <div class="video-container">
-            <video class="project-video" autoplay muted loop controls>
+            <video class="project-video" preload="metadata" muted loop controls>
                 <source src="../Videos/GameBoy-Zelda.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -977,7 +900,7 @@
         </p>
 
         <div class="video-container">
-            <video class="project-video" autoplay muted loop controls>
+            <video class="project-video" preload="metadata" muted loop controls>
                 <source src="../Videos/PS1-Crash.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -1011,7 +934,7 @@
         </p>
 
         <div class="video-container">
-            <video class="project-video" autoplay muted loop controls>
+            <video class="project-video" preload="metadata" muted loop controls>
                 <source src="../Videos/Compiler.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -1044,7 +967,7 @@
         </p>
 
         <div class="video-container">
-            <video class="project-video" autoplay muted loop controls>
+            <video class="project-video" preload="metadata" muted loop controls>
                 <source src="../Videos/GameEngine.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -1078,13 +1001,6 @@
             Creature-collecting RPG steeped in Eldritch horror, developed with Unity and published on Steam.
         </p>
 
-        <!--<div class="video-container">
-            <video class="project-video" autoplay muted loop controls>
-                <source src="../Videos/BookOfAbominations.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>-->
-
         <div style="background: rgba(46, 204, 113, 0.1); padding: 1.2rem; border-radius: 10px; margin: 1.2rem 0;">
             <h3 style="color: var(--primary-color); margin-bottom: 0.8rem; font-size: 1.2rem;">Project Details</h3>
             <ul style="padding-left: 1.2rem; font-size: 0.98rem;">
@@ -1115,261 +1031,151 @@
     </div>
 </div>
 
-<!--<div id="linker-modal" class="project-modal">
-    <div class="modal-content">
-        <span class="modal-close" onclick="closeModal('linker-modal')">&times;</span>
-        <h2>Linker</h2>
-        <p style="font-size: 1.1rem; margin-top: 1rem; opacity: 0.9;">
-            A base-building and combat game developed in one week for a Game Jam.
-        </p>
-
-        <div class="video-container">
-            <video class="project-video" autoplay muted loop controls>
-                <source src="../Videos/Linker.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-
-        <div style="background: rgba(46, 204, 113, 0.1); padding: 1.2rem; border-radius: 10px; margin: 1.2rem 0;">
-            <h3 style="color: var(&#45;&#45;primary-color); margin-bottom: 0.8rem; font-size: 1.2rem;">Game Details</h3>
-            <ul style="padding-left: 1.2rem; font-size: 0.98rem;">
-                <li style="margin-bottom: 0.6rem;">Built with a custom Java game engine</li>
-                <li style="margin-bottom: 0.6rem;">Features base-building and combat mechanics</li>
-                <li style="margin-bottom: 0.6rem;">All assets created from scratch</li>
-                <li>Developed under tight deadline for Game Jam</li>
-            </ul>
-        </div>
-
-        <div class="btn-group" style="display: flex; gap: 0.8rem; margin-top: 1.2rem; flex-wrap: wrap;">
-            <a href="https://github.com/Daxy215" class="btn" target="_blank">
-                <i class="fab fa-github"></i> View on GitHub
-            </a>
-        </div>
-    </div>
-</div>-->
-
 <script>
-    // Mobile navigation toggle
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
-
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navLinks.classList.toggle('active');
-    });
-
-    // Close mobile menu when clicking a link
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navLinks.classList.remove('active');
-        });
-    });
-
-    // Initialize projects on load
-    document.addEventListener('DOMContentLoaded', () => {
-        filterProjects('all');
-        initParticles();
-        animate();
-
-        // Initialize Intersection Observer
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.project-card').forEach(card => observer.observe(card));
-    });
-
-    // Scroll Progress
-    window.onscroll = () => {
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        document.getElementById('progressBar').style.width = (winScroll / height) * 100 + "%";
-
-        // Hide mobile menu when scrolling
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-    };
-
-    // Theme Toggle
-    function toggleTheme() {
-        const body = document.body;
-        const icon = document.querySelector('.theme-toggle i');
-        const newTheme = body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-        body.setAttribute('data-theme', newTheme);
-        icon.className = newTheme === 'light' ? 'fas fa-sun' : 'fas fa-moon';
-
-        // Save theme preference
-        localStorage.setItem('theme', newTheme);
-    }
-
-    // Load saved theme
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        document.body.setAttribute('data-theme', savedTheme);
-        document.querySelector('.theme-toggle i').className = savedTheme === 'light' ? 'fas fa-sun' : 'fas fa-moon';
-    }
-
-    // Project Filter
-    function filterProjects(category) {
-        document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
-        event.target.classList.add('active');
-
-        document.querySelectorAll('.project-card').forEach(card => {
-            card.style.display = category === 'all' || card.dataset.category === category ? 'block' : 'none';
-        });
-    }
-
-    // Modal Handling
-    function openModal(id) {
-        const modal = document.getElementById(id);
-        if (modal) {
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-
-            // Play the video when modal opens
-            const video = modal.querySelector('video');
-            if (video) {
-                video.play();
-            }
-        }
-    }
-
-    function closeModal(id) {
-        const modal = document.getElementById(id);
-        if (modal) {
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-
-            // Pause the video when modal closes
-            const video = modal.querySelector('video');
-            if (video) {
-                video.pause();
-            }
-        }
-    }
-
-    // Particle System
     const canvas = document.getElementById('particleCanvas');
     const ctx = canvas.getContext('2d');
     let particles = [];
+    let animationId = null;
 
     // Particle class
     class Particle {
         constructor() {
             this.x = Math.random() * canvas.width;
             this.y = Math.random() * canvas.height;
-            this.size = Math.random() * 2 + 1;
-            this.speedX = Math.random() * 2 - 1;
-            this.speedY = Math.random() * 2 - 1;
-            this.color = `rgba(46, 204, 113, ${Math.random() * 0.4 + 0.3})`;
+            this.size = Math.random() * 2 + 1; // Size between 2-6px
+            this.speedX = Math.random() * 3 - 1.5;
+            this.speedY = Math.random() * 3 - 1.5;
+            this.color = `rgba(46, 204, 113, ${Math.random() * 0.6 + 0.4})`; // Higher opacity
+            this.glowSize = this.size * 3;
+            this.glowOpacity = Math.random() * 0.3 + 0.2;
         }
 
         update() {
             this.x += this.speedX;
             this.y += this.speedY;
 
-            if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX;
-            if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY;
+            // Bounce off edges
+            if (this.x > canvas.width) {
+                this.x = 0;
+            } else if (this.x < 0) {
+                this.x = canvas.width;
+            }
+
+            if (this.y > canvas.height) {
+                this.y = 0;
+            } else if (this.y < 0) {
+                this.y = canvas.height;
+            }
         }
 
         draw() {
+            // Draw glow
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.glowSize, 0, Math.PI * 2);
+
+            const gradient = ctx.createRadialGradient(
+                this.x, this.y, 0,
+                this.x, this.y, this.glowSize
+            );
+
+            gradient.addColorStop(0, `rgba(46, 204, 113, ${this.glowOpacity})`);
+            gradient.addColorStop(1, 'rgba(46, 204, 113, 0)');
+            ctx.fillStyle = gradient;
+            ctx.fill();
+
+            // Draw particle
             ctx.fillStyle = this.color;
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             ctx.fill();
-
-            // Add glow effect
-            ctx.shadowBlur = 10;
-            ctx.shadowColor = this.color;
         }
     }
 
     // Create particles
     function initParticles() {
+        // Set canvas size to match viewport
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
         particles = [];
 
-        const particleCount = window.innerWidth / 6;
+        // Create particles - enough for good coverage
+        const particleCount = Math.min(150, Math.floor(window.innerWidth / 8));
         for (let i = 0; i < particleCount; i++) {
             particles.push(new Particle());
         }
     }
 
-    // Animation loop
-    function animateParticles() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
+    // Draw connections between particles
+    function drawConnections() {
         for (let i = 0; i < particles.length; i++) {
-            particles[i].update();
-            particles[i].draw();
-
-            // Draw connections between particles
-            for (let j = i; j < particles.length; j++) {
+            for (let j = i + 1; j < particles.length; j++) {
                 const dx = particles[i].x - particles[j].x;
                 const dy = particles[i].y - particles[j].y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
 
-                if (distance < 120) {
+                // Draw line if particles are close enough
+                if (distance < 150) {
+                    const opacity = 1 - distance / 150;
+                    ctx.strokeStyle = `rgba(46, 204, 113, ${opacity * 0.3})`;
+                    ctx.lineWidth = 0.7;
                     ctx.beginPath();
-                    ctx.strokeStyle = `rgba(46, 204, 113, ${0.1 * (1 - distance/120)})`;
-                    ctx.lineWidth = 0.4;
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);
                     ctx.stroke();
                 }
             }
         }
+    }
 
-        requestAnimationFrame(animateParticles);
+    // Animation loop
+    function animateParticles() {
+        // Clear canvas completely
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Update and draw particles
+        for (let i = 0; i < particles.length; i++) {
+            particles[i].update();
+            particles[i].draw();
+        }
+
+        // Draw connections
+        drawConnections();
+
+        // Continue animation loop
+        animationId = requestAnimationFrame(animateParticles);
     }
 
     // Initialize and animate
     function initParticleSystem() {
+        // First set canvas size
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // Then initialize particles
         initParticles();
-        animateParticles();
+
+        // Finally start animation
+        animationId = requestAnimationFrame(animateParticles);
     }
 
-    // Handle resize
-    window.addEventListener('resize', initParticles);
-
-    // Initialize particle system
-    initParticleSystem();
-
-    // Click outside modal
-    window.addEventListener('click', (event) => {
-        if (event.target.classList.contains('project-modal')) {
-            closeModal(event.target.id);
-        }
-    });
-
-    // ESC key close
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            const openModal = document.querySelector('.project-modal.active');
-            if (openModal) closeModal(openModal.id);
-        }
-    });
-
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                window.scrollTo({
-                    top: target.offsetTop - 70,
-                    behavior: 'smooth'
-                });
+    // Handle resize with debounce
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            if (animationId) {
+                cancelAnimationFrame(animationId);
             }
-        });
+            initParticleSystem();
+        }, 250);
+    });
+
+    // Initialize particles when DOM is fully loaded
+    document.addEventListener('DOMContentLoaded', () => {
+        // Initialize particle system after a small delay to ensure CSS is applied
+        setTimeout(initParticleSystem, 100);
     });
 </script>
+
 </body>
 </html>
