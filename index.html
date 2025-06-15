@@ -190,7 +190,6 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: 0 0 15px rgba(46, 204, 113, 0.4);
         }
 
         .hero p {
@@ -453,23 +452,23 @@
             right: 1rem;
             font-size: 1.5rem;
             cursor: pointer;
-            color: var(--primary-color);
+            color: #ffffff;
             transition: transform var(--transition-speed);
-            background: rgba(0, 0, 0, 0.7);
-            width: 35px;
-            height: 35px;
+            background: rgba(0, 0, 0, 0.9);
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             line-height: 1;
             z-index: 10;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
         }
 
         .modal-close:hover {
             transform: rotate(90deg);
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 1);
         }
 
         .theme-toggle {
@@ -564,7 +563,6 @@
             }
         }
 
-        /* OS Modal Styles */
         .os-code {
             display: none;
             margin-top: 1.5rem;
@@ -634,7 +632,6 @@
             color: var(--primary-color);
         }
 
-        /* Mobile Menu Styles */
         .nav-links.active {
             display: flex;
             flex-direction: column;
@@ -642,7 +639,7 @@
             top: 0;
             right: 0;
             height: 100vh;
-            width: 70%;
+            width: 80%;
             background: rgba(13, 17, 23, 0.98);
             backdrop-filter: blur(10px);
             padding: 5rem 2rem;
@@ -670,7 +667,6 @@
             transform: rotate(-45deg) translate(5px, -5px);
         }
 
-        /* Media Queries */
         @media (min-width: 768px) {
             .hero-content {
                 flex-direction: row;
@@ -878,7 +874,6 @@
     </div>
 
     <div class="project-grid">
-        <!-- Game Boy Emulator -->
         <div class="project-card" data-category="emulator" data-modal="gb-modal">
             <span class="project-category">Emulator</span>
             <h3>Game Boy Emulator</h3>
@@ -890,7 +885,6 @@
             </div>
         </div>
 
-        <!-- PS1 Emulator -->
         <div class="project-card" data-category="emulator" data-modal="ps1-modal">
             <span class="project-category">Emulator</span>
             <h3>PlayStation 1 Emulator</h3>
@@ -903,7 +897,6 @@
             </div>
         </div>
 
-        <!-- Compiler -->
         <div class="project-card" data-category="system" data-modal="compiler-modal">
             <span class="project-category">Compiler</span>
             <h3>Custom Compiler</h3>
@@ -915,7 +908,6 @@
             </div>
         </div>
 
-        <!-- Game Engine -->
         <div class="project-card" data-category="system" data-modal="engine-modal">
             <span class="project-category">Game Engine</span>
             <h3>Custom Game Engine</h3>
@@ -927,7 +919,6 @@
             </div>
         </div>
 
-        <!-- Book of Abominations Card -->
         <div class="project-card" data-category="game" data-modal="boa-modal">
             <span class="project-category">Game</span>
             <h3>Book of Abominations</h3>
@@ -940,7 +931,6 @@
             </div>
         </div>
 
-        <!-- Operating System Card -->
         <div class="project-card" data-category="system" data-modal="os-modal">
             <span class="project-category">Operating System</span>
             <h3>Custom x86 OS</h3>
@@ -971,7 +961,179 @@
     </div>
 </section>
 
-<!-- Operating System Modal -->
+<!-- Project Modals -->
+<div id="gb-modal" class="project-modal">
+    <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <h2>Game Boy Emulator</h2>
+        <p style="font-size: 1.1rem; margin-top: 1rem; opacity: 0.9;">
+            A Game Boy and Game Boy Color emulator with debugger support. Built to learn about system programming and hardware emulation.
+        </p>
+
+        <div class="video-container">
+            <video class="project-video" preload="metadata" muted loop controls>
+                <source src="../Videos/GameBoy-Zelda.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div style="background: rgba(46, 204, 113, 0.1); padding: 1.2rem; border-radius: 10px; margin: 1.2rem 0;">
+            <h3 style="color: var(--primary-color); margin-bottom: 0.8rem; font-size: 1.2rem;">Project Details</h3>
+            <ul style="padding-left: 1.2rem; font-size: 0.98rem;">
+                <li style="margin-bottom: 0.6rem;">Supports most Game Boy and Game Boy Color games</li>
+                <li style="margin-bottom: 0.6rem;">Includes debugging tools for CPU and memory inspection</li>
+                <li style="margin-bottom: 0.6rem;">Audio implementation is currently in progress</li>
+                <li>Future plans include improving compatibility and adding Game Boy Color support</li>
+            </ul>
+        </div>
+
+        <div class="btn-group" style="display: flex; gap: 0.8rem; margin-top: 1.2rem; flex-wrap: wrap;">
+            <a href="https://github.com/Daxy215/Gameboy-Emulator" class="btn" target="_blank">
+                <i class="fab fa-github"></i> View on GitHub
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="ps1-modal" class="project-modal">
+    <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <h2>PlayStation 1 Emulator</h2>
+        <p style="font-size: 1.1rem; margin-top: 1rem; opacity: 0.9;">
+            A cycle-accurate MIPS R3000A emulator with advanced graphics features. Built with C++, OpenGL, and ImGui.
+        </p>
+
+        <div class="video-container">
+            <video class="project-video" preload="metadata" muted loop controls>
+                <source src="../Videos/PS1-Crash.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div style="background: rgba(46, 204, 113, 0.1); padding: 1.2rem; border-radius: 10px; margin: 1.2rem 0;">
+            <h3 style="color: var(--primary-color); margin-bottom: 0.8rem; font-size: 1.2rem;">Key Features</h3>
+            <ul style="padding-left: 1.2rem; font-size: 0.98rem;">
+                <li style="margin-bottom: 0.6rem;">Cycle-accurate MIPS R3000A CPU emulation</li>
+                <li style="margin-bottom: 0.6rem;">Advanced GPU emulation with texture support</li>
+                <li style="margin-bottom: 0.6rem;">Post-processing shaders: upscaling, bloom, and CRT effects</li>
+                <li style="margin-bottom: 0.6rem;">CRT effects include scanlines, noise, and edge darkness</li>
+                <li>ImGui-based debug interface for system inspection</li>
+            </ul>
+        </div>
+
+        <div class="btn-group" style="display: flex; gap: 0.8rem; margin-top: 1.2rem; flex-wrap: wrap;">
+            <a href="https://github.com/Daxy215/PS1Emulator" class="btn" target="_blank">
+                <i class="fab fa-github"></i> View on GitHub
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="compiler-modal" class="project-modal">
+    <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <h2>Custom Compiler</h2>
+        <p style="font-size: 1.1rem; margin-top: 1rem; opacity: 0.9;">
+            A runtime compiler for a C-like language, generating x86 assembly code.
+        </p>
+
+        <div class="video-container">
+            <video class="project-video" preload="metadata" muted loop controls>
+                <source src="../Videos/Compiler.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div style="background: rgba(46, 204, 113, 0.1); padding: 1.2rem; border-radius: 10px; margin: 1.2rem 0;">
+            <h3 style="color: var(--primary-color); margin-bottom: 0.8rem; font-size: 1.2rem;">Technical Details</h3>
+            <ul style="padding-left: 1.2rem; font-size: 0.98rem;">
+                <li style="margin-bottom: 0.6rem;">Full compilation pipeline: lexer, parser, semantic analysis</li>
+                <li style="margin-bottom: 0.6rem;">Intermediate representation and code generation</li>
+                <li style="margin-bottom: 0.6rem;">Originally designed as an interpreter, evolved to compiler</li>
+                <li>Built to learn assembly and low-level programming concepts</li>
+            </ul>
+        </div>
+
+        <div class="btn-group" style="display: flex; gap: 0.8rem; margin-top: 1.2rem; flex-wrap: wrap;">
+            <a href="https://github.com/Daxy215/Compiler" class="btn" target="_blank">
+                <i class="fab fa-github"></i> View on GitHub
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="engine-modal" class="project-modal">
+    <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <h2>Custom Game Engine</h2>
+        <p style="font-size: 1.1rem; margin-top: 1rem; opacity: 0.9;">
+            A 2D/3D game engine built from scratch in Java, featuring ECS architecture.
+        </p>
+
+        <div class="video-container">
+            <video class="project-video" preload="metadata" muted loop controls>
+                <source src="../Videos/GameEngine.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div style="background: rgba(46, 204, 113, 0.1); padding: 1.2rem; border-radius: 10px; margin: 1.2rem 0;">
+            <h3 style="color: var(--primary-color); margin-bottom: 0.8rem; font-size: 1.2rem;">Engine Capabilities</h3>
+            <ul style="padding-left: 1.2rem; font-size: 0.98rem;">
+                <li style="margin-bottom: 0.6rem;">Entity-Component-System architecture</li>
+                <li style="margin-bottom: 0.6rem;">Custom rendering pipeline with OpenGL</li>
+                <li style="margin-bottom: 0.6rem;">Used for multiple projects including a Minecraft clone</li>
+                <li style="margin-bottom: 0.6rem;">Currently being refactored for better architecture</li>
+                <li>Supports complex simulations with many objects</li>
+            </ul>
+        </div>
+
+        <div class="btn-group" style="display: flex; gap: 0.8rem; margin-top: 1.2rem; flex-wrap: wrap;">
+            <a href="https://github.com/Daxy215/Anix-Java" class="btn" target="_blank">
+                <i class="fab fa-github"></i> View on GitHub
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="boa-modal" class="project-modal">
+    <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <h2>Book of Abominations</h2>
+        <p style="font-size: 1.1rem; margin-top: 1rem; opacity: 0.9;">
+            Creature-collecting RPG steeped in Eldritch horror, developed with Unity and published on Steam.
+        </p>
+
+        <div style="background: rgba(46, 204, 113, 0.1); padding: 1.2rem; border-radius: 10px; margin: 1.2rem 0;">
+            <h3 style="color: var(--primary-color); margin-bottom: 0.8rem; font-size: 1.2rem;">Project Details</h3>
+            <ul style="padding-left: 1.2rem; font-size: 0.98rem;">
+                <li style="margin-bottom: 0.6rem;"><strong>Role:</strong> Main Programmer (Team of 4)</li>
+                <li style="margin-bottom: 0.6rem;"><strong>Engine:</strong> Unity with C#</li>
+                <li style="margin-bottom: 0.6rem;">Developed dynamic turn-based combat system</li>
+                <li style="margin-bottom: 0.6rem;">Implemented monster mutation/evolution mechanics</li>
+                <li>Created puzzle-solving mechanics using monster abilities</li>
+            </ul>
+
+            <h3 style="color: var(--primary-color); margin: 1.2rem 0 0.8rem; font-size: 1.2rem;">Key Features</h3>
+            <ul style="padding-left: 1.2rem; font-size: 0.98rem;">
+                <li style="margin-bottom: 0.6rem;">Capture and mutate Lovecraftian abominations</li>
+                <li style="margin-bottom: 0.6rem;">Explore Halflight Isle - a remote fishing community with supernatural history</li>
+                <li style="margin-bottom: 0.6rem;">Strategic turn-based combat with status effects and buffs/debuffs</li>
+                <li>Befriend NPCs and use monster abilities to solve puzzles</li>
+            </ul>
+        </div>
+
+        <div class="btn-group" style="display: flex; gap: 0.8rem; margin-top: 1.2rem; flex-wrap: wrap;">
+            <a href="https://store.steampowered.com/app/3291120/Book_of_Abominations/" class="btn" target="_blank">
+                <i class="fab fa-steam"></i> View on Steam
+            </a>
+            <a href="https://studio-catloaf.itch.io/book-of-abominations" class="btn btn-outline" target="_blank">
+                <i class="fas fa-download"></i> Itch.io Demo
+            </a>
+        </div>
+    </div>
+</div>
+
 <div id="os-modal" class="project-modal">
     <div class="modal-content">
         <span class="modal-close">&times;</span>
@@ -1088,7 +1250,6 @@ protected_mode:
 </div>
 
 <script>
-    // Mobile navigation toggle
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
 
@@ -1097,7 +1258,6 @@ protected_mode:
         navLinks.classList.toggle('active');
     });
 
-    // Close mobile menu when clicking a link
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
             hamburger.classList.remove('active');
@@ -1105,13 +1265,11 @@ protected_mode:
         });
     });
 
-    // Initialize projects on load
     document.addEventListener('DOMContentLoaded', () => {
         filterProjects('all');
         initParticleSystem();
         setupEventListeners();
 
-        // Initialize Intersection Observer for lazy animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1122,42 +1280,32 @@ protected_mode:
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.project-card').forEach(card => observer.observe(card));
-
-        // Initialize OS code as hidden
         document.getElementById('os-code').style.display = 'none';
     });
 
-    // Scroll Progress
     window.onscroll = () => {
         const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         document.getElementById('progressBar').style.width = (winScroll / height) * 100 + "%";
-
-        // Hide mobile menu when scrolling
         hamburger.classList.remove('active');
         navLinks.classList.remove('active');
     };
 
-    // Theme Toggle
     function toggleTheme() {
         const body = document.body;
         const icon = document.querySelector('.theme-toggle i');
         const newTheme = body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
         body.setAttribute('data-theme', newTheme);
         icon.className = newTheme === 'light' ? 'fas fa-sun' : 'fas fa-moon';
-
-        // Save theme preference
         localStorage.setItem('theme', newTheme);
     }
 
-    // Load saved theme
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
         document.body.setAttribute('data-theme', savedTheme);
         document.querySelector('.theme-toggle i').className = savedTheme === 'light' ? 'fas fa-sun' : 'fas fa-moon';
     }
 
-    // Project Filter
     function filterProjects(category) {
         document.querySelectorAll('.tab-button').forEach(btn => {
             if (btn.dataset.category === category) {
@@ -1172,14 +1320,11 @@ protected_mode:
         });
     }
 
-    // Modal Handling
     function openModal(id) {
         const modal = document.getElementById(id);
         if (modal) {
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
-
-            // Play the video when modal opens
             const video = modal.querySelector('video');
             if (video) {
                 video.play().catch(e => console.log("Video play prevented:", e));
@@ -1192,8 +1337,6 @@ protected_mode:
         if (modal) {
             modal.classList.remove('active');
             document.body.style.overflow = 'auto';
-
-            // Pause the video when modal closes
             const video = modal.querySelector('video');
             if (video) {
                 video.pause();
@@ -1201,7 +1344,6 @@ protected_mode:
         }
     }
 
-    // OS Code Toggle
     function toggleOsCode() {
         const codeSection = document.getElementById('os-code');
         const toggleIcon = document.querySelector('.os-code-toggle i');
@@ -1217,23 +1359,19 @@ protected_mode:
         }
     }
 
-    // Setup event listeners
     function setupEventListeners() {
-        // Tab buttons
         document.querySelectorAll('.tab-button').forEach(button => {
             button.addEventListener('click', () => {
                 filterProjects(button.dataset.category);
             });
         });
 
-        // Project cards
         document.querySelectorAll('.project-card').forEach(card => {
             card.addEventListener('click', () => {
                 openModal(card.dataset.modal);
             });
         });
 
-        // Modal close buttons
         document.querySelectorAll('.modal-close').forEach(closeBtn => {
             closeBtn.addEventListener('click', () => {
                 const modal = closeBtn.closest('.project-modal');
@@ -1242,7 +1380,6 @@ protected_mode:
         });
     }
 
-    // Particle System
     const canvas = document.getElementById('particleCanvas');
     const ctx = canvas.getContext('2d');
     let particles = [];
@@ -1357,14 +1494,12 @@ protected_mode:
         }, 250);
     });
 
-    // Click outside modal
     window.addEventListener('click', (event) => {
         if (event.target.classList.contains('project-modal')) {
             closeModal(event.target.id);
         }
     });
 
-    // ESC key close
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             const openModal = document.querySelector('.project-modal.active');
@@ -1372,7 +1507,6 @@ protected_mode:
         }
     });
 
-    // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
