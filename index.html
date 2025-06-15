@@ -1480,7 +1480,9 @@ protected_mode:
         canvas.height = window.innerHeight;
         particles = [];
 
-        const particleCount = Math.min(150, Math.floor(window.innerWidth / 8));
+        particleCount = Math.min(150, Math.floor(window.innerWidth / 8));
+        particleCount = particleCount * 0.75;
+
         for (let i = 0; i < particleCount; i++) {
             particles.push(new Particle());
         }
