@@ -431,8 +431,10 @@
 
         .project-modal.active {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
+            padding-top: 3rem;
+            overflow-y: auto;
             opacity: 1;
             visibility: visible;
         }
@@ -445,6 +447,7 @@
             border-radius: 12px;
             position: relative;
             width: 100%;
+            overflow-y: auto;
             z-index: 2001;
             border: 1px solid rgba(46, 204, 113, 0.2);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
@@ -700,6 +703,31 @@
 
             .hamburger {
                 display: none;
+            }
+
+            .modal-content {
+                max-height: 90vh;
+                overflow-y: auto;
+            }
+
+            .modal-close {
+                position: fixed;
+                top: 1.5rem;
+                right: 1.5rem;
+                background: rgba(0, 0, 0, 0.8);
+                z-index: 2002;
+                width: 45px;
+                height: 45px;
+            }
+
+            .modal-header {
+                position: sticky;
+                top: 0;
+                background: var(--card-bg);
+                z-index: 10;
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
             }
         }
 
