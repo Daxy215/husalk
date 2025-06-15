@@ -186,10 +186,14 @@
             font-size: 2.5rem;
             margin-bottom: 1.2rem;
             line-height: 1.2;
-            background: linear-gradient(90deg, #ffffff, var(--primary-light));
+            /*background: linear-gradient(90deg, #ffffff, var(--primary-light));
             -webkit-background-clip: text;
             background-clip: text;
-            color: transparent;
+            color: transparent;*/
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
+            color: var(--primary-light);
         }
 
         .hero p {
@@ -712,7 +716,9 @@
 
             .hero h1 {
                 font-size: 2rem;
-                background: linear-gradient(90deg, #ffffff, #4cde8a);
+                /*background: linear-gradient(90deg, #ffffff, #4cde8a);*/
+                background: none;
+                color: #FFFFFF;
             }
 
             .hero p {
@@ -1279,6 +1285,11 @@ protected_mode:
             });
         }, { threshold: 0.1 });
 
+        const savedTheme = localStorage.getItem('theme') || 'dark'
+        document.body.setAttribute('data-theme', savedTheme);
+        document.querySelector('.theme-toggle i').className =
+            savedTheme === 'light' ? 'fas fa-sun' : 'fas fa-moon';
+
         document.querySelectorAll('.project-card').forEach(card => observer.observe(card));
         document.getElementById('os-code').style.display = 'none';
     });
@@ -1293,18 +1304,21 @@ protected_mode:
 
     function toggleTheme() {
         const body = document.body;
-        const icon = document.querySelector('.theme-toggle i');
-        const newTheme = body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        const currentTheme = body.getAttribute('data-theme') || 'dark';
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
         body.setAttribute('data-theme', newTheme);
-        icon.className = newTheme === 'light' ? 'fas fa-sun' : 'fas fa-moon';
+        document.querySelector('.theme-toggle i').className =
+            newTheme === 'light' ? 'fas fa-sun' : 'fas fa-moon';
+
         localStorage.setItem('theme', newTheme);
     }
 
-    const savedTheme = localStorage.getItem('theme');
+    /*const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
         document.body.setAttribute('data-theme', savedTheme);
         document.querySelector('.theme-toggle i').className = savedTheme === 'light' ? 'fas fa-sun' : 'fas fa-moon';
-    }
+    }*/
 
     function filterProjects(category) {
         document.querySelectorAll('.tab-button').forEach(btn => {
