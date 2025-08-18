@@ -1331,6 +1331,8 @@ protected_mode:
     };
 
     function toggleTheme() {
+        return;
+        
         const body = document.body;
         const currentTheme = body.getAttribute('data-theme') || 'dark';
         const newTheme = currentTheme === 'light' ? 'dark' : 'light';
