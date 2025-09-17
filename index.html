@@ -423,7 +423,8 @@
             display: flex;
             justify-content: center;
             gap: 0.5rem;
-            margin-top: 1.5rem;
+            margin-top: 1rem;
+            padding-bottom: 1rem;
         }
 
         .dot {
@@ -878,13 +879,11 @@
             const difX = endX - startX;
             const difY = endY - startY;
 
-            console.log("Dif;", difX, difY)
-
             // Check for horizontal swiping
             if(Math.abs(difX) > Math.abs(difY) && canSwipe) {
                 if(Math.abs(difX) > 50)
                     canSwipe = false;
-                
+
                 if(difX > 50) {
                     // Swiping right
                     document.getElementById("prev-project").click();
