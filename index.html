@@ -627,7 +627,7 @@
             </a>
 
             <div class="project-navigation">
-                <button class="nav-button prev" id="prev-project" disabled>
+                <button class="nav-button prev" id="prev-project">
                     <i class="fas fa-chevron-left"></i> Previous
                 </button>
 
@@ -811,9 +811,11 @@
         projects.forEach((_, i) => {
             const dot = document.createElement('div');
             dot.className = `dot ${i === 0 ? 'active' : ''}`;
+
             dot.addEventListener('click', () => {
                 if (!isNavigating) updateShowcase(i);
             });
+
             dotsContainer.appendChild(dot);
         });
     }
