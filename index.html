@@ -543,11 +543,11 @@
         <span></span>
         <span></span>
     </button>
-    <ul class="nav-links" id="navLinks">
+    <!--<ul class="nav-links" id="navLinks">
         <li><a href="#home">Home</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
-    </ul>
+    </ul>-->
 </nav>
 
 <section id="home" class="hero">
@@ -721,6 +721,11 @@
     let currentProjectIndex = 0;
     let isNavigating = false;
 
+   const showcase = document.querySelector('.project-showcase');
+
+   let startX = 0;
+   let startY = 0;
+
     function initProjectShowcase() {
         updateShowcase(0);
         createNavigationDots();
@@ -852,6 +857,30 @@
                 updateShowcase(newIndex);
             }
         });
+
+        showcase.addEventListener("touchstart", (e) => {
+           startX = e.touches[0].clientX;
+           startY = e.touches[0].clientY;
+        });
+
+        showcase.addEventListener("touchpad", (e) => {
+            const endX = e.changedTouches[0].clientX;
+            const endY = e.changedTouches[0].clientY;
+
+            const difX = endX - startX;
+            const difY = endY - startY;
+
+            // Check for horizontal swiping
+            if(Math.abs(difX) > Math.abs(difY)) {
+                if(difX > 50) {
+                    // Swiping right
+                    document.getElementById("prev-project").click();
+                } else if(difX < -50) {
+                    // Swiping next
+                    document.getElementById("next-project").click();
+                }
+            }
+        })
     }
 
     const hamburger = document.getElementById('hamburger');
