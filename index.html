@@ -860,20 +860,31 @@
             }
         });
 
+        let canSwipe = false;
+
         showcase.addEventListener("touchstart", (e) => {
            startX = e.touches[0].clientX;
            startY = e.touches[0].clientY;
         });
 
-        showcase.addEventListener("touchpad", (e) => {
+        showcase.addEventListener("touchend", (e) => {
+            canSwipe = true;
+        })
+
+        showcase.addEventListener("touchmove", (e) => {
             const endX = e.changedTouches[0].clientX;
             const endY = e.changedTouches[0].clientY;
 
             const difX = endX - startX;
             const difY = endY - startY;
 
+            console.log("Dif;", difX, difY)
+
             // Check for horizontal swiping
-            if(Math.abs(difX) > Math.abs(difY)) {
+            if(Math.abs(difX) > Math.abs(difY) && canSwipe) {
+                if(Math.abs(difX) > 50)
+                    canSwipe = false;
+                
                 if(difX > 50) {
                     // Swiping right
                     document.getElementById("prev-project").click();
@@ -886,17 +897,17 @@
     }
 
     const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
+    //const navLinks = document.getElementById('navLinks');
 
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
-        navLinks.classList.toggle('active');
+        //navLinks.classList.toggle('active');
     });
 
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
             hamburger.classList.remove('active');
-            navLinks.classList.remove('active');
+            //navLinks.classList.remove('active');
         });
     });
 
@@ -919,7 +930,7 @@
         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         document.getElementById('progressBar').style.width = (winScroll / height) * 100 + "%";
         hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
+        //navLinks.classList.remove('active');
     };
 
     const canvas = document.getElementById('particleCanvas');
