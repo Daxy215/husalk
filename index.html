@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hussein Al Khayyat — Software Engineer</title>
+    <meta
+        name="description"
+        content="Portfolio of Hussein Al Khayyat, a software engineer with experience in backend microservices, APIs, systems programming and game development."
+    >
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Hussein Al Khayyat — Software Engineer">
+    <meta
+        property="og:description"
+        content="Backend microservices, APIs, emulators, game engines, compilers and low-level software."
+    >
+
+    <link rel="stylesheet" href="Css/main.css">
+    <script src="Js/main.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <nav class="nav container" aria-label="Main navigation">
+            <a class="nav-name" href="#top">Hussein Al Khayyat</a>
+
+            <div class="nav-links">
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#about">About</a>
+                <a class="nav-contact" href="mailto:smsmkhaldon@gmail.com">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main id="top">
+        <section class="hero container">
+            <p class="eyebrow">Hussein Al Khayyat</p>
+
+            <h1>Software Engineer</h1>
+
+            <p class="hero-summary">
+                I build backend systems, APIs and low-level software, with experience
+                across microservices, emulators, compilers, game engines and commercial
+                game development.
+            </p>
+
+            <div class="hero-actions">
+                <a class="button button-primary" href="#projects">View projects</a>
+                <a
+                    class="button button-secondary"
+                    href="Hussein-Al-Khayyat-CV.pdf"
+                    download
+                >
+                    Download CV
+                </a>
+                <a class="button button-secondary" href="mailto:smsmkhaldon@gmail.com">
+                    Email me
+                </a>
+            </div>
+
+            <ul class="skill-list" aria-label="Main technologies">
+                <li>C++</li>
+                <li>TypeScript</li>
+                <li>Node.js</li>
+                <li>PostgreSQL</li>
+                <li>Microservices</li>
+                <li>Docker</li>
+                <li>AWS</li>
+            </ul>
+        </section>
+
+        <section class="experience-section" id="experience">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Professional work</p>
+                    <h2>Experience</h2>
+                    <p>
+                        Backend engineering, gameplay programming and technical leadership
+                        across remote and commercial development teams.
+                    </p>
+                </div>
+
+                <div class="experience-list">
+                    <article class="experience-card">
+                        <div class="experience-header">
+                            <p class="experience-date">09/2025 — 03/2026 · Remote</p>
+                            <h3>Software Engineer Intern</h3>
+                            <p class="experience-company">UniPin</p>
+                        </div>
+
+                        <ul class="experience-points">
+                            <li>
+                                Developed and built a Kotlin/Spring Boot backend microservice
+                                in a distributed microservices architecture, focusing on
+                                reliable integration behaviour and clean service boundaries.
+                            </li>
+                            <li>
+                                Developed GraphQL APIs using Netflix DGS for internal and
+                                external platform integrations, validating data flow, edge
+                                cases and database-backed behaviours across services.
+                            </li>
+                            <li>
+                                Developed a secure signed-link generation system for merchant
+                                integrations, taking care of security-sensitive inputs and
+                                integration scenarios.
+                            </li>
+                            <li>
+                                Used tooling like PostgreSQL, Liquibase, Docker and Kubernetes
+                                for schema changes, deployments, troubleshooting and
+                                environment-level issue isolation.
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article class="experience-card">
+                        <div class="experience-header">
+                            <p class="experience-date">03/2025 — 09/2025 · Remote</p>
+                            <h3>Gameplay Programmer</h3>
+                            <p class="experience-company">Segritude Games</p>
+                        </div>
+
+                        <ul class="experience-points">
+                            <li>
+                                Developed and maintained gameplay systems in C++ and Blueprints
+                                within Unreal Engine 5, validating feature behaviour through
+                                iterative builds and team review.
+                            </li>
+                            <li>
+                                Reproduced, debugged and fixed gameplay logic issues affecting
+                                stability, performance and user-facing behaviour.
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article class="experience-card">
+                        <div class="experience-header">
+                            <p class="experience-date">02/2024 — 02/2025 · Dundee, UK</p>
+                            <h3>Lead Programmer</h3>
+                            <p class="experience-company">Catloaf Studio</p>
+                        </div>
+
+                        <ul class="experience-points">
+                            <li>
+                                Led development of gameplay systems for a commercial Steam
+                                release, coordinating technical direction and programming
+                                tasks within a small team.
+                            </li>
+                            <li>
+                                Implemented turn-based combat, save/load systems and core game
+                                logic with emphasis on correctness, maintainability,
+                                performance and regression-safe changes.
+                            </li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects-section" id="projects">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Selected work</p>
+                    <h2>Projects</h2>
+                    <p>Everything important is shown below. No carousel or hidden pages.</p>
+                </div>
+
+                <div class="project-list">
+                    <article class="project project-featured">
+                        <div class="project-media">
+                            <video
+                                muted
+                                loop
+                                playsinline
+                                preload="metadata"
+                                aria-label="Game Boy emulator running The Legend of Zelda"
+                            >
+                                <source src="Videos/GameBoy-Zelda.mp4" type="video/mp4">
+                                Your browser does not support video.
+                            </video>
+                        </div>
+
+                        <div class="project-content">
+                            <p class="project-type">Emulator · C++ · SDL2</p>
+                            <h3>Game Boy Emulator</h3>
+                            <p>
+                                A C++ emulator built to understand CPU, memory and graphics
+                                hardware. It runs Game Boy games and includes debugging tools.
+                            </p>
+                            <a
+                                class="project-link"
+                                href="https://github.com/Daxy215/Gameboy-Emulator"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                View source code <span aria-hidden="true">↗</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="project project-featured">
+                        <div class="project-media">
+                            <video
+                                muted
+                                loop
+                                playsinline
+                                preload="metadata"
+                                aria-label="PlayStation emulator running Crash Bandicoot"
+                            >
+                                <source src="Videos/PS1-Crash.mp4" type="video/mp4">
+                                Your browser does not support video.
+                            </video>
+                        </div>
+
+                        <div class="project-content">
+                            <p class="project-type">Emulator · C++ · OpenGL · MIPS</p>
+                            <h3>PlayStation 1 Emulator</h3>
+                            <p>
+                                A PlayStation emulator that can boot and run games. Building it
+                                taught me how the MIPS CPU, memory and GPU work together.
+                            </p>
+                            <a
+                                class="project-link"
+                                href="https://github.com/Daxy215/PS1Emulator"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                View source code <span aria-hidden="true">↗</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="project project-featured">
+                        <div class="project-media">
+                            <video
+                                muted
+                                loop
+                                playsinline
+                                preload="metadata"
+                                aria-label="Custom compiler demonstration"
+                            >
+                                <source src="Videos/Compiler.mp4" type="video/mp4">
+                                Your browser does not support video.
+                            </video>
+                        </div>
+
+                        <div class="project-content">
+                            <p class="project-type">Compiler · C++ · x86</p>
+                            <h3>Custom Compiler</h3>
+                            <p>
+                                A compiler for a small C-like language. It includes lexing,
+                                semantic analysis, control-flow graphs, intermediate
+                                representation and code generation.
+                            </p>
+                            <a
+                                class="project-link"
+                                href="https://github.com/Daxy215/Compiler"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                View source code <span aria-hidden="true">↗</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="project project-featured">
+                        <div class="project-media">
+                            <video
+                                muted
+                                loop
+                                playsinline
+                                preload="metadata"
+                                aria-label="Custom Java game engine demonstration"
+                            >
+                                <source src="Videos/GameEngine.mp4" type="video/mp4">
+                                Your browser does not support video.
+                            </video>
+                        </div>
+
+                        <div class="project-content">
+                            <p class="project-type">Game engine · Java · OpenGL</p>
+                            <h3>Custom Game Engine</h3>
+                            <p>
+                                A 2D and 3D engine I started as a teenager and improved through
+                                real projects, including ray tracing, a Minecraft-style
+                                prototype and several games.
+                            </p>
+                            <a
+                                class="project-link"
+                                href="https://github.com/Daxy215/Anix-Java"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                View source code <span aria-hidden="true">↗</span>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="more-projects">
+                    <article class="small-project">
+                        <p class="project-type">Commercial game · Unity · C#</p>
+                        <h3>Book of Abominations</h3>
+                        <p>
+                            An eldritch monster-collecting RPG released on Steam.
+                            I worked on it as part of a development team.
+                        </p>
+                        <a
+                            class="project-link"
+                            href="https://store.steampowered.com/app/3291120/Book_of_Abominations/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            View on Steam <span aria-hidden="true">↗</span>
+                        </a>
+                    </article>
+
+                    <article class="small-project">
+                        <p class="project-type">Operating system · C · x86 assembly</p>
+                        <h3>Custom x86 OS</h3>
+                        <p>
+                            A small operating system built from scratch with paging,
+                            graphics and keyboard and mouse input.
+                        </p>
+                        <a
+                            class="project-link"
+                            href="https://github.com/Daxy215/SimpleSystem"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            View source code <span aria-hidden="true">↗</span>
+                        </a>
+                    </article>
+
+                    <article class="small-project">
+                        <p class="project-type">Game jam · Custom engine</p>
+                        <h3>Linker</h3>
+                        <p>
+                            A one-week prototype combining combat and base building.
+                            I created the engine, gameplay and art for the project.
+                        </p>
+                        <a
+                            class="project-link"
+                            href="https://github.com/Daxy215/Linker"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            View source code <span aria-hidden="true">↗</span>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section" id="about">
+            <div class="container about-grid">
+                <div>
+                    <p class="eyebrow">About</p>
+                    <h2>I learn by building.</h2>
+                </div>
+
+                <div class="about-copy">
+                    <p>
+                        I enjoy working close to the hardware and understanding what
+                        software is doing underneath the surface.
+                    </p>
+                    <p>
+                        Most of my personal projects begin with a simple question:
+                        how does this system work? I then build my own version to find out.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section" id="contact">
+            <div class="container contact-card">
+                <div>
+                    <p class="eyebrow">Contact</p>
+                    <h2>Let’s talk.</h2>
+                    <p>Email is the fastest way to reach me.</p>
+                </div>
+
+                <div class="contact-actions">
+                    <a class="button button-primary" href="mailto:smsmkhaldon@gmail.com">
+                        Send an email
+                    </a>
+                    <a
+                        class="button button-secondary"
+                        href="https://github.com/Daxy215"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        GitHub
+                    </a>
+                    <a
+                        class="button button-secondary"
+                        href="https://www.linkedin.com/in/husalk/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        LinkedIn
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© <span id="current-year"></span> Hussein Al Khayyat</p>
+        </div>
+    </footer>
+</body>
+</html>
