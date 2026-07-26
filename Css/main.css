@@ -335,6 +335,145 @@ h3 {
     object-fit: cover;
 }
 
+.project-media-interface {
+    display: grid;
+    place-items: center;
+    padding: clamp(24px, 4vw, 48px);
+    background: #e9eef8;
+}
+
+.legal-preview {
+    width: min(100%, 760px);
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 22% 1fr;
+    border: 1px solid #d6deeb;
+    border-radius: 14px;
+    background: #f7f9fc;
+    box-shadow: 0 24px 55px rgba(23, 37, 61, 0.16);
+}
+
+.legal-preview-sidebar {
+    padding: 8% 10%;
+    display: flex;
+    flex-direction: column;
+    gap: 8%;
+    border-right: 1px solid #dce3ee;
+    background: #ffffff;
+}
+
+.legal-preview-brand {
+    width: 76%;
+    height: 6%;
+    margin-bottom: 10%;
+    border-radius: 999px;
+    background: var(--accent);
+}
+
+.legal-preview-nav {
+    width: 88%;
+    height: 7%;
+    border-radius: 6px;
+    background: #e8edf5;
+}
+
+.legal-preview-nav.active {
+    background: #dbe7ff;
+}
+
+.legal-preview-content {
+    min-width: 0;
+    padding: 7%;
+}
+
+.legal-preview-heading {
+    margin-bottom: 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.legal-preview-heading div {
+    width: 42%;
+    display: grid;
+    gap: 8px;
+}
+
+.legal-preview-heading span {
+    width: 38%;
+    height: 7px;
+    border-radius: 999px;
+    background: var(--accent);
+}
+
+.legal-preview-heading strong {
+    width: 100%;
+    height: 14px;
+    border-radius: 999px;
+    background: #25344d;
+}
+
+.legal-preview-heading i {
+    width: 19%;
+    height: 30px;
+    border-radius: 8px;
+    background: var(--accent);
+}
+
+.legal-preview-metrics {
+    margin-bottom: 7%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3%;
+}
+
+.legal-preview-metrics span {
+    aspect-ratio: 1.55;
+    border-radius: 9px;
+    background: #e5eaf2;
+}
+
+.legal-preview-panel {
+    padding: 4%;
+    border: 1px solid #dce3ee;
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+.legal-preview-panel-head {
+    width: 32%;
+    height: 10px;
+    margin-bottom: 5%;
+    border-radius: 999px;
+    background: #25344d;
+}
+
+.legal-preview-row {
+    min-height: 28px;
+    display: grid;
+    grid-template-columns: 19% 1fr 22% 15%;
+    align-items: center;
+    gap: 5%;
+    border-top: 1px solid #edf0f5;
+}
+
+.legal-preview-row b,
+.legal-preview-row span,
+.legal-preview-row em {
+    height: 7px;
+    border-radius: 999px;
+    background: #dce3ee;
+}
+
+.legal-preview-row b {
+    background: #b9cbef;
+}
+
+.legal-preview-row em {
+    background: #dce9df;
+}
+
 .project-content {
     padding: clamp(28px, 5vw, 58px);
     display: flex;
